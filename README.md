@@ -1,7 +1,7 @@
 Developers' Guide to Features of Web Accessibility Evaluation Tools
 ========
 
-Repository for the Developers' Guide to Features of Web Accessibility Evaluation Tools
+Repository for the (Developers' Guide to Features of Web Accessibility Evaluation Tools)[http://www.w3.org/TR/WAET/].
 
 ## License
 
