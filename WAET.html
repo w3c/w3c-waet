@@ -1,7 +1,8 @@
-<!doctype html>
-<html lang="en">
+<!--doctype html-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Developers' Guide to Features of Web Accessibility Evaluation Tools</title>
+    <title>Developers' Guide to Features of Web Accessibility Evaluation
+    Tools</title>
 
     <meta charset="utf-8" />
 
@@ -13,43 +14,54 @@
             width: 100%;
             border-collapse: collapse;
         }
+
         table, tr, th, td {
             border: 1px solid #000;
         }
+
         abbr {
             border-bottom: dotted 1px #444;
         }
+
         ul.w3ctoc li {
             list-style: none;
         }
+
         a.termref:link, a.termref:visited {
             color: #000000;
             background: inherit;
         }
+
         a.termref:hover, .termref:active, a.termref:focus {
             color: #0000CC;
             background: inherit;
         }
+
         dd, li {
             margin-top: 0.25em;
         }
+
         dt {
             margin-top: 0.5em;
         }
+
         .note {
             background-color: #ffffcc;
             border: thin dashed;
             padding: 5px;
         }
+
         .highlight {
             background-color: #ffffcc;
         }
+
         .req {
             color: #000;
             padding: 5px;
             border: 1px dotted #e63232;
             background-color: #f4f3e7;
         }
+
         .termref {
             text-decoration: none;
             color: #000000;
@@ -58,11 +70,13 @@
             border-bottom: dashed #808080 1px;
             background-color: transparent;
         }
+
         .offscreen {
             position: absolute;
             left: -999px;
             width: 990px;
         }
+
         .example {
             margin: 1em 2em 1em 2em;
             color: #000;
@@ -77,16 +91,22 @@
   href="http://www.w3.org/"><img alt="W3C" height="48"
   src="http://www.w3.org/Icons/w3c_home" width="72" /></a></p> <h1
   id="title">Developers' Guide to Features of Web Accessibility Evaluation
-  Tools</h1> <h2 id="w3c-doctype"><abbr>W3C</abbr> First Public Working Draft 24 July 2014</h2> <dl>
+  Tools</h1> <h2 id="w3c-doctype"><abbr>W3C</abbr> Editor Draft 25 August
+  2014</h2> <dl>
       <dt>This version:</dt>
 
       <dd><a
-      href="http://www.w3.org/TR/2014/WD-WAET-20140724/">http://www.w3.org/TR/2014/WD-WAET-20140724/</a></dd>
+      href="http://www.w3.org/TR/2014/WD-WAET-20140825/">http://www.w3.org/TR/2014/WD-WAET-20140825/</a></dd>
 
       <dt>Latest version:</dt>
 
       <dd><a
       href="http://www.w3.org/TR/WAET/">http://www.w3.org/TR/WAET/</a></dd>
+
+      <dt>Previous published version:</dt>
+
+      <dd><a
+      href="http://www.w3.org/TR/2014/WD-WAET-20140724/">http://www.w3.org/TR/2014/WD-WAET-20140724/</a></dd>
 
       <dt>Editors:</dt>
 
@@ -111,31 +131,85 @@
   href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>
   and <a
   href="http://www.w3.org/Consortium/Legal/copyright-documents">document
-  use</a> rules apply. </p></div><hr />
-  <h2 id="abstract">Abstract</h2>
-  <p>This document describes features that web authoring and quality assurance tools can incorporate, so that they support the evaluation of accessibility requirements, such as those defined by the <a href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility Guidelines (<abbr>WCAG</abbr>) 2.0</a>. The main purpose of this document is to promote awareness of such tool features and to provide introductory guidance for tool developers on what kind of features they could provide in future implementations of their tools. This listing of features could also be used to help compare different types of evaluation tools, for example during the procurement of such tools.</p>
-  <p>The features in scope of this document include capabilities to help specify, manage, carry out and report the results from web accessibility evaluations. For example, some of the described features relate to crawling of websites, interacting with tool users to carry out semi-automated evaluation, and providing evaluation results in a machine-readable format. This document does not describe the evaluation of web content features, which is addressed by <abbr>WCAG</abbr> 2.0 and its supporting documents.</p>
-  <p>This document encourages the incorporation of accessibility evaluation features in all web authoring and quality assurance tools, and the continued development and creation of different types of web accessibility evaluation tools. The document does not prioritize nor require any particular accessibility evaluation feature or specific type of evaluation tools. It describes features that can be provided by tools that support fully-automated, semi-automated, and manual web accessibility evaluation. Following this document can help tool developers to meet accessibility checking requirements defined by the <a href="http://www.w3.org/WAI/intro/atag">Authoring Tool Accessibility Guidelines (<abbr>ATAG</abbr>)</a>.</p>
+  use</a> rules apply. </p></div> <hr /> <h2 id="abstract">Abstract</h2>
+  <p>This document describes features that web authoring and quality assurance
+  tools can incorporate, so that they support the evaluation of accessibility
+  requirements, such as those defined by the <a
+  href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility Guidelines
+  (<abbr>WCAG</abbr>) 2.0</a>. The main purpose of this document is to promote
+  awareness of such tool features and to provide introductory guidance for
+  tool developers on what kind of features they could provide in future
+  implementations of their tools. This listing of features could also be used
+  to help compare different types of evaluation tools, for example during the
+  procurement of such tools.</p> <p>The features in scope of this document
+  include capabilities to help specify, manage, carry out and report the
+  results from web accessibility evaluations. For example, some of the
+  described features relate to crawling of websites, interacting with tool
+  users to carry out semi-automated evaluation, and providing evaluation
+  results in a machine-readable format. This document does not describe the
+  evaluation of web content features, which is addressed by <abbr>WCAG</abbr>
+  2.0 and its supporting documents.</p> <p>This document encourages the
+  incorporation of accessibility evaluation features in all web authoring and
+  quality assurance tools, and the continued development and creation of
+  different types of web accessibility evaluation tools. The document does not
+  prioritize nor require any particular accessibility evaluation feature or
+  specific type of evaluation tools. It describes features that can be
+  provided by tools that support fully-automated, semi-automated, and manual
+  web accessibility evaluation. Following this document can help tool
+  developers to meet accessibility checking requirements defined by the <a
+  href="http://www.w3.org/WAI/intro/atag">Authoring Tool Accessibility
+  Guidelines (<abbr>ATAG</abbr>)</a>.</p> <div id="sotd"> <h2
+  id="status">Status of this document</h2> <p><em>This section describes the
+  status of this document at the time of its publication. Other documents may
+  supersede this document. A list of current <abbr>W3C</abbr> publications and
+  the latest revision of this technical report can be found in the <a
+  href="http://www.w3.org/TR/"><abbr>W3C</abbr> technical reports index</a> at
+  http://www.w3.org/TR/.</em></p> <p>This 24 July 2014 First Public Working
+  Draft of Developers' Guide to Features of Web Accessibility Evaluation Tools
+  is intended to be published and maintained as a <abbr>W3C</abbr> Working
+  Group Note after review and refinement. It provides an initial outline for
+  the format and approach taken in this document to gather early feedback on
+  it. Some features may be missing in this first iteration of the document.
+  Suggestions for additional features to be listed in this document is
+  welcome.</p> <p>The <a href="http://www.w3.org/WAI/ER/">Evaluation and
+  Repair Tools Working Group (<abbr>ERT WG</abbr>)</a> invites discussion and
+  feedback on this document by web accessibility evaluation tool developers,
+  web authoring and quality assurance tool developers, evaluators,
+  researchers, and others with interest in web accessibility evaluation tools.
+  In particular, <abbr>ERT WG</abbr> is looking for feedback on:</p> <ul>
+      <li>The format and approach taken in this document;</li>
 
-  <div id="sotd">
-    <h2 id="status">Status of this document</h2>
-  <p><em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr>W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/"><abbr>W3C</abbr> technical reports index</a> at http://www.w3.org/TR/.</em></p>
-    <p>This 24 July 2014 First Public Working Draft of Developers' Guide to Features of Web Accessibility Evaluation Tools is intended to be published and maintained as a <abbr>W3C</abbr> Working Group Note after review and refinement. It provides an initial outline for the format and approach taken in this document to gather early feedback on it. Some features may be missing in this first iteration of the document. Suggestions for additional features to be listed in this document is welcome.</p>
-    <p>The <a href="http://www.w3.org/WAI/ER/">Evaluation and Repair Tools Working Group (<abbr>ERT WG</abbr>)</a> invites discussion and feedback on this document by web accessibility evaluation tool developers, web authoring and quality assurance tool developers, evaluators, researchers, and others with interest in web accessibility evaluation tools. In particular, <abbr>ERT WG</abbr> is looking for feedback on:</p>
-  <ul>
-    <li>The format and approach taken in this document;</li>
-    <li>Features descriptions that are currently missing;</li>
-    <li>Feedback on the included feature descriptions.</li>
-  </ul>
-    <p>Please send comments on this Developers' Guide to Features of Web Accessibility Evaluation Tools document by 15 August 2014 to <a href="mailto:public-wai-ert-tools@w3.org">public-wai-ert-tools@w3.org</a> (publicly visible <a href="http://lists.w3.org/Archives/Public/public-wai-ert-tools/">mailing list archive</a>).</p>
-    <p>Publication as a First Public Working Draft does not imply endorsement by the <abbr>W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.</p>
-    <p>This document has been produced by the <a href="http://www.w3.org/WAI/ER/">Evaluation and Repair Tools Working Group (ERT WG)</a>, as part of the <a href="http://www.w3.org/WAI/Technical/Activity">Web Accessibility Initiative (WAI) Technical Activity</a>.</p>
-  <p>This document was produced by a group operating under the <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004 <abbr>W3C</abbr> Patent Policy</a>. The group does not expect this document to become a <abbr>W3C</abbr> Recommendation. <abbr>W3C</abbr> maintains a <a rel="disclosure" href="http://www.w3.org/2004/01/pp-impl/32094/status">public list of any patent disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section 6 of the <abbr>W3C</abbr> Patent Policy</a>.</p>
-  </div><hr />
+      <li>Features descriptions that are currently missing;</li>
 
-<h2 id="contents">Table of Contents</h2>
-
-<ul class="w3ctoc">
+      <li>Feedback on the included feature descriptions.</li>
+    </ul> <p>Please send comments on this Developers' Guide to Features of Web
+  Accessibility Evaluation Tools document by 15 August 2014 to <a
+  href="mailto:public-wai-ert-tools@w3.org">public-wai-ert-tools@w3.org</a>
+  (publicly visible <a
+  href="http://lists.w3.org/Archives/Public/public-wai-ert-tools/">mailing
+  list archive</a>).</p> <p>Publication as a First Public Working Draft does
+  not imply endorsement by the <abbr>W3C</abbr> Membership. This is a draft
+  document and may be updated, replaced or obsoleted by other documents at any
+  time. It is inappropriate to cite this document as other than work in
+  progress.</p> <p>This document has been produced by the <a
+  href="http://www.w3.org/WAI/ER/">Evaluation and Repair Tools Working Group
+  (ERT WG)</a>, as part of the <a
+  href="http://www.w3.org/WAI/Technical/Activity">Web Accessibility Initiative
+  (WAI) Technical Activity</a>.</p> <p>This document was produced by a group
+  operating under the <a
+  href="http://www.w3.org/Consortium/Patent-Policy-20040205/">5 February 2004
+  <abbr>W3C</abbr> Patent Policy</a>. The group does not expect this document
+  to become a <abbr>W3C</abbr> Recommendation. <abbr>W3C</abbr> maintains a <a
+  href="http://www.w3.org/2004/01/pp-impl/32094/status"
+  rel="disclosure">public list of any patent disclosures</a> made in
+  connection with the deliverables of the group; that page also includes
+  instructions for disclosing a patent. An individual who has actual knowledge
+  of a patent which the individual believes contains <a
+  href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
+  Claim(s)</a> must disclose the information in accordance with <a
+  href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
+  6 of the <abbr>W3C</abbr> Patent Policy</a>.</p> </div> <hr /> <h2
+  id="contents">Table of Contents</h2> <ul class="w3ctoc">
       <li><a href="#abstract">Abstract</a></li>
 
       <li><a href="#status">Status of this document</a></li>
@@ -144,9 +218,7 @@
 
       <li><a href="#intro">1 Introduction</a> <ul>
           <li><a href="#tools">1.1 Evaluation Tools</a></li>
-
-        </ul>
-</li>
+        </ul></li>
 
       <li><a href="#features">2 Features of an accessibility evaluation
       tool</a> <ul>
@@ -219,75 +291,119 @@
         </ul></li>
 
       <li><a href="#profiles">3 Example profiles of evaluation tools</a> <ul>
-          <li><a href="#plugin">3.1 Example Tool A: Browser plug-in evaluating a
-          rendered HTML page</a></li>
+          <li><a href="#plugin">3.1 Example Tool A: Browser plug-in evaluating
+          a rendered HTML page</a></li>
 
-          <li><a href="#largeScale">3.2 Example Tool B: Large-scale accessibility
-          evaluation tool</a></li>
+          <li><a href="#largeScale">3.2 Example Tool B: Large-scale
+          accessibility evaluation tool</a></li>
 
-          <li><a href="#mobile">3.3 Example Tool C: Accessibility evaluation tool for
-          mobile applications</a></li>
+          <li><a href="#mobile">3.3 Example Tool C: Accessibility evaluation
+          tool for mobile applications</a></li>
 
-          <li><a href="#overview">3.4 Side-by-Side Comparison of the Example Tools</a></li>
+          <li><a href="#overview">3.4 Side-by-Side Comparison of the Example
+          Tools</a></li>
         </ul></li>
 
       <li><a href="#references">4 References</a></li>
 
       <li><a href="#ack">Acknowledgements</a></li>
-    </ul>
+    </ul> <h2 id="intro">1 Introduction</h2> <p>Designing, developing,
+  monitoring, and managing a website typically involves a variety of tasks and
+  people who use different types of tools. For example, a web developer might
+  use an integrated development environment (<abbr>IDE</abbr>) to create
+  templates for a content management system (<abbr>CMS</abbr>), while a web
+  content author will typically use the content-editing facility provided by
+  the <abbr>CMS</abbr> to create and edit the web pages. Ideally all these
+  tools provide features to support everyone involved throughout the process
+  in evaluating accessibility. For example, an <abbr>IDE</abbr> could provide
+  functionality to check document fragments so that the developer can check
+  individual web page components during their development, and a
+  <abbr>CMS</abbr> could provide functionality to customize the accessibility
+  checks that are automatically carried out to help monitor the quality of the
+  website. This document lists and describes these types of features that can
+  be provided by tools to support accessibility evaluation in a variety of
+  situations and contexts.</p> <h3 id="tools">1.1 Evaluation Tools</h3> <p>In
+  the context of this document, an <strong id="evaltool_def">evaluation
+  tool</strong> is a (web-based or non-web-based) software application that
+  enables its users to evaluate web content according to specific quality
+  criteria, such as web accessibility requirements. This includes but is not
+  limited to the following (non-mutually-exclusive) types of tools:</p> <ul>
+      <li id="authoringtool_def"><strong>Web authoring tool</strong> -
+      <cite>Any web-based or non-web-based application(s) that can be used by
+      authors (alone or collaboratively) to create or modify web content for
+      use by other people (other authors or end users)</cite>; from the <a
+      href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Authoring Tool
+      Accessibility Guidelines (<abbr>ATAG</abbr>) 2.0</a>;</li>
 
-    <h2 id="intro">1 Introduction</h2> 
-    <p>Designing, developing, monitoring, and managing a website typically involves a variety of tasks and people who use different types of tools. For example, a web developer might use an integrated development environment (<abbr>IDE</abbr>) to create templates for a content management system (<abbr>CMS</abbr>), while a web content author will typically use the content-editing facility provided by the <abbr>CMS</abbr> to create and edit the web pages. Ideally all these tools provide features to support everyone involved throughout the process in evaluating accessibility. For example, an <abbr>IDE</abbr> could provide functionality to check document fragments so that the developer can check individual web page components during their development, and a <abbr>CMS</abbr> could provide functionality to customize the accessibility checks that are automatically carried out to help monitor the quality of the website. This document lists and describes these types of features that can be provided by tools to support accessibility evaluation in a variety of situations and contexts.</p>
+      <li id="qatool_def"><strong>Web quality assurance tool</strong> - Any
+      (web-based or non-web-based) software application that is specifically
+      designed to evaluate web content according to quality criteria (that are
+      usually broader than accessibility requirements alone);</li>
 
-    <h3 id="tools">1.1 Evaluation Tools</h3>
-<p>In the context of this document, an <strong id="evaltool_def">evaluation tool</strong> is a (web-based or non-web-based) software application that enables its users to evaluate web content according to specific quality criteria, such as web accessibility requirements. This includes but is not limited to the following (non-mutually-exclusive) types of tools:</p> <ul>
-      <li id="authoringtool_def"><strong>Web authoring tool</strong> - <cite>Any web-based or non-web-based application(s) that can be used by authors (alone or collaboratively) to create or modify web content for use by other people (other authors or end users)</cite>; from the <a href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Authoring Tool Accessibility Guidelines (<abbr>ATAG</abbr>) 2.0</a>;</li>
-<li id="qatool_def"><strong>Web quality assurance tool</strong> - Any (web-based or non-web-based) software application that is specifically designed to evaluate web content according to quality criteria (that are usually broader than accessibility requirements alone);</li>
-<li id="a11ytool_def"><strong>Web accessibility evaluation tool</strong> - Any (web-based or non-web-based) software application that is specifically designed to evaluate web content according to accessibility requirements, such as the <a href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility
-      Guidelines (<abbr>WCAG</abbr>) 2.0</a>.</li>
-    </ul>
-    <p>Note that these terms are not mutually exclusive. A web accessibility evaluation tool is a particular type of web quality assurance tool. In some cases it can be part of a web authoring tool, or considered to be a web authoring tool depending on the functionality that it provides (see the <a href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool"><abbr>ATAG</abbr> 2.0 definition for <em>authoring tool</em></a>). Also, a web quality assurance tool might not check for accessibility criteria but might provide other functionality, such as for managing quality assurance processes and reporting evaluation results, that may be useful for web accessibility evaluation. This document refers to any of these tools collectively as evaluation tools.</p>
-    <p><abbr title="World Wide Web Consortium">W3C</abbr> Web Accessibility Initiative (<abbr>WAI</abbr>) provides a <a href="http://www.w3.org/WAI/ER/tools/">list of web accessibility evaluation tools</a> that can be searched according to different criteria such as the features listed in this document. <span class="highlight">[<strong>Editor Note:</strong> The list of web accessibility evaluation is currently out of date. It is expected to be updated before the next publication of this document.]</span></p>
-
-  <h2 id="features">2 Features of an accessibility evaluation tool</h2><p
-  class="note">[<strong>Review Note:</strong> Feedback on this section is
-  particularly welcome, specifically with suggestions for accessibility
-  evaluation features that are not listed below and with comments to refine
-  listed accessibility evaluation features.] </p><p>The features of an
-  accessibility evaluation tool are presented in this section from different
-  perspectives: the <strong>resource to be evaluated</strong> (i.e., web
-  content and its linked resources, which enable its rendering to the user
-  agent and end user), <strong>the testing requirements</strong>, the
+      <li id="a11ytool_def"><strong>Web accessibility evaluation tool</strong>
+      - Any (web-based or non-web-based) software application that is
+      specifically designed to evaluate web content according to accessibility
+      requirements, such as the <a href="http://www.w3.org/WAI/intro/wcag">Web
+      Content Accessibility Guidelines (<abbr>WCAG</abbr>) 2.0</a>.</li>
+    </ul> <p>Note that these terms are not mutually exclusive. A web
+  accessibility evaluation tool is a particular type of web quality assurance
+  tool. In some cases it can be part of a web authoring tool, or considered to
+  be a web authoring tool depending on the functionality that it provides (see
+  the <a
+  href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool"><abbr>ATAG</abbr> 2.0
+  definition for <em>authoring tool</em></a>). Also, a web quality assurance
+  tool might not check for accessibility criteria but might provide other
+  functionality, such as for managing quality assurance processes and
+  reporting evaluation results, that may be useful for web accessibility
+  evaluation. This document refers to any of these tools collectively as
+  evaluation tools.</p> <p><abbr title="World Wide Web Consortium">W3C</abbr>
+  Web Accessibility Initiative (<abbr>WAI</abbr>) provides a <a
+  href="http://www.w3.org/WAI/ER/tools/">list of web accessibility evaluation
+  tools</a> that can be searched according to different criteria such as the
+  features listed in this document. <span class="highlight">[<strong>Editor
+  Note:</strong> The list of web accessibility evaluation is currently out of
+  date. It is expected to be updated before the next publication of this
+  document.]</span> </p> <h2 id="features">2 Features of an accessibility
+  evaluation tool</h2> <p class="note">[<strong>Review Note:</strong> Feedback
+  on this section is particularly welcome, specifically with suggestions for
+  accessibility evaluation features that are not listed below and with
+  comments to refine listed accessibility evaluation features.] </p> <p>The
+  features of an accessibility evaluation tool are presented in this section
+  from different perspectives: the <strong>resource to be evaluated</strong>
+  (i.e., web content and its linked resources, which enable its rendering to
+  the user agent and end user), <strong>the testing requirements</strong>, the
   <strong>reporting customization capabilities of the tool</strong> and other
   <strong>tool usage</strong> characteristics like the integration into the
-  development and editing workflow of the user.</p><p>The accessibility
-  evaluation features listed and described below is not exhaustive. It may
-  not be possible nor desired for a single tool to implement all of the listed
+  development and editing workflow of the user.</p> <p>The accessibility
+  evaluation features listed and described below is not exhaustive. It may not
+  be possible nor desired for a single tool to implement all of the listed
   features either. For example, tools that are specifically designed to assist
   designers in creating web page layouts would likely not incorporate features
   for evaluating the code of web applications. Developers can use this list to
   identify features that are relevant to their tools to plan their
   implementation. Also others interested in acquiring and using evaluation
   tools can use this document to learn about relevant features to look
-  for.</p><h3 id="subjects">2.1 Retrieving and rendering web content</h3>
+  for.</p> <h3 id="subjects">2.1 Retrieving and rendering web content</h3>
   <p>This category includes features that help to retrieve and render
   different types of web content. There are tools that may retrieve the
   content to be analyzed from the file system or from a database. However, the
   majority of them do it via a network connection through the
-  <abbr>HTTP(S)</abbr> protocol. This section focuses mostly on this latter scenario. </p><p>Due to the characteristics of the
-  <abbr>HTTP(S)</abbr> protocol, the rendering of a web resource implies the
-  manipulation and storage of many other components associated with it, like
-  request and response headers, session information, cookies, authentication
-  information, etc. These associated components are also considered in the
-  following. </p> <h4 id="typedoc">2.1.1 Content types</h4> <p> Although the
-  majority of web resources are <abbr>HTML</abbr> documents, there are many
-  other types of resources that need to be considered when analyzing web
-  accessibility. For example, resources like <abbr>CSS</abbr> stylesheets or
-  JavaScript scripts allow the modification of markup documents in the user
-  agent when they are loaded or via user interaction. Many accessibility tests
-  are the result of the interpretation of those resources and are therefore
-  important for an accessibility evaluation. Accessibility evaluation tools
-  should state which types of formats they support.</p> <p>Some types of content formats include:</p> <ul>
+  <abbr>HTTP(S)</abbr> protocol. This section focuses mostly on this latter
+  scenario. </p> <p>Due to the characteristics of the <abbr>HTTP(S)</abbr>
+  protocol, the rendering of a web resource implies the manipulation and
+  storage of many other components associated with it, like request and
+  response headers, session information, cookies, authentication information,
+  etc. These associated components are also considered in the following. </p>
+  <h4 id="typedoc">2.1.1 Content types</h4> <p> Although the majority of web
+  resources are <abbr>HTML</abbr> documents, there are many other types of
+  resources that need to be considered when analyzing web accessibility. For
+  example, resources like <abbr>CSS</abbr> stylesheets or JavaScript scripts
+  allow the modification of markup documents in the user agent when they are
+  loaded or via user interaction. Many accessibility tests are the result of
+  the interpretation of those resources and are therefore important for an
+  accessibility evaluation. Accessibility evaluation tools should state which
+  types of formats they support.</p> <p>Some types of content formats
+  include:</p> <ul>
       <li><strong>Markup documents</strong>. These are normally
       <abbr>HTML</abbr> [<a href="#HTML4">HTML4</a>, <a
       href="#HTML5">HTML5</a>] or <abbr>XML</abbr> documents. Processing these
@@ -296,9 +412,9 @@
       different specifications, which can then be parsed and analyzed.</li>
 
       <li><strong>Style resources</strong>. These are presentation modifiers,
-      which conform to the different <abbr>CSS</abbr> specifications
-      [<a href="#CSS2">CSS2</a>, <a href="#CSS3">CSS3</a>]. The interpretation
-      of stylesheets is relevant for many accessibility techniques.</li>
+      which conform to the different <abbr>CSS</abbr> specifications [<a
+      href="#CSS2">CSS2</a>, <a href="#CSS3">CSS3</a>]. The interpretation of
+      stylesheets is relevant for many accessibility techniques.</li>
 
       <li><strong>Script resources</strong>. These are components that modify
       the content or the presentation of web resources and web applications,
@@ -332,7 +448,7 @@
       href="http://www.microsoft.com/silverlight/">Microsoft Silverlight</a>,
       etc. These resources are normally found embedded within
       <abbr>HTML</abbr> pages as applications.</li>
-    </ul><h4 id="encoding">2.1.2 Content encoding and content language</h4>
+    </ul> <h4 id="encoding">2.1.2 Content encoding and content language</h4>
   <p>This feature identifies which content languages and encodings are
   supported by the evaluation tool. The web is a multilingual and
   multicultural space in which information can be presented in different
@@ -365,13 +481,13 @@
   interpreted by the tool (see section on <a href="#webdriver">web testing
   APIs</a>). </p> <h4 id="cnegotiation">2.1.5 Content negotiation</h4> <p>
   Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol
-  that enables web servers to customize the representation of the
-  requested resources according to the demands of the client user agent.
-  Because of this, the identification of resources on the web by a Uniform
-  Resource Identifier (<abbr>URI</abbr>) alone may not be sufficient. To
-  support content negotiation, the testing tool customizes and stores the
+  that enables web servers to customize the representation of the requested
+  resources according to the demands of the client user agent. Because of
+  this, the identification of resources on the web by a Uniform Resource
+  Identifier (<abbr>URI</abbr>) alone may not be sufficient. To support
+  content negotiation, the testing tool customizes and stores the
   <abbr>HTTP</abbr> headers according to different criteria (see discussion in
-</p><ul>
+  </p> <ul>
       <li>to fetch a particular variant of the content, such as a mobile
       website;</li>
 
@@ -380,8 +496,8 @@
       <li>to control session and authentication information;</li>
 
       <li>etc.</li>
-    </ul><h4 id="cookies">2.1.6 Cookies</h4><p> A cookie is a name-value pair
-  that it is stored by the user-agent [<a
+    </ul> <h4 id="cookies">2.1.6 Cookies</h4> <p> A cookie is a name-value
+  pair that it is stored by the user-agent [<a
   href="#HTTPCOOKIES">HTTPCOOKIES</a>]. Cookies contain information relevant
   to the website that is being rendered and often include authentication and
   session information exchanged between the client and the server, which as
@@ -474,7 +590,7 @@
   conformance can only be ensured by supporting developers and accessibility
   experts while testing in manual and semiautomatic mode.</p> <h4
   id="ownTests">2.2.3 Development of own tests and test extensions</h4> <p>
-  Developers and quality assurance engineers need sometimes to implement their
+  Developers and quality assurance engineers sometimes need to implement their
   own tests. For that purpose, some tools define an <abbr>API</abbr> that
   helps developers to create their own tests, which respond to internal
   demands within their organization. </p> <h4 id="webdriver">2.2.4 Test
@@ -482,7 +598,7 @@
   applications, it is sometimes desirable to create scripts that emulate user
   interaction. With the growing complexity of web applications, there is an
   effort to standardize such interfaces. One of them is, for instance, the
-  WebDriver <abbr>API</abbr> [<a href="#WebDriver">WebDriver</a>]. Tools that
+  WebDriver <abbr>API</abbr> [<a href="#_WebDriver">WebDriver</a>]. Tools that
   support this API enable developers to write tests that automate the
   application's and the end-users' behaviour.</p> <h3 id="reporting">2.3
   Reporting and monitoring</h3> <p>This category includes features related to
@@ -532,7 +648,7 @@
   etc.) and aggregate results as described in the previous section.</p> <p> As
   described in <a href="#manual">Section 2.2.2</a>, full accessibility
   compliance can only be achieved when manual testing has been implemented.
-  </p> <h4 id="repair">2.3.7 Error repair</h4><p> The majority of web
+  </p> <h4 id="repair">2.3.7 Error repair</h4> <p> The majority of web
   developers have little or no knowledge about web accessibility. Tools may
   provide together with their reporting capabilities additional information to
   support developers and accessibility experts to correct the accessibility
@@ -544,10 +660,10 @@
   described in the Authoring Tool Accessibility Guidelines 2.0 [<a
   href="#ATAG">ATAG</a>], then the tool will meet its <a
   href="http://www.w3.org/TR/ATAG20/#sc_b321">success criterion
-  B.3.2.1</a>.</p><p>This feature may include, for example, a guided
+  B.3.2.1</a>.</p> <p>This feature may include, for example, a guided
   step-by-step wizard which guides the evaluator to correct the problems
   found. Automatic repair of accessibility problems is discouraged, as it may
-  originate non-desirable side-effects.</p><h3 id="toolUsage">2.4 Tool
+  originate non-desirable side-effects.</p> <h3 id="toolUsage">2.4 Tool
   usage</h3> <p>This section includes characteristics that describe the
   integration into the development and edition workflow of the user or are
   targeted to the customization of different aspects of the tool depending on
@@ -587,15 +703,15 @@
   [<a href="#W3Ci18n">W3Ci18n</a>] and in [<a href="#I18N">I18N</a>]. </p> <p>
   From the accessibility standpoint, it is recommended to use the <a
   href="http://www.w3.org/WAI/WCAG20/translations.html">authorized
-  translations of the Web Content
-  Accessibility Guidelines</a>. It must be considered as well that some
-  accessibility tests need to be customized to other languages, like for
-  instance, such as those related to readability. </p> <h4 id="customAudience">2.4.3
-  Functionality customization to different audiences</h4> <p>Typically,
-  evaluation tools are targeted to web accessibility experts with a deep
-  knowledge of the topic. However, there are also tools that allow the
-  customization of the evaluation results or even the user interface
-  functionality to other audiences like, for instance:</p> <ul>
+  translations of the Web Content Accessibility Guidelines</a>. It must be
+  considered as well that some accessibility tests need to be customized to
+  other languages, like for instance, such as those related to readability.
+  </p> <h4 id="customAudience">2.4.3 Functionality customization to different
+  audiences</h4> <p>Typically, evaluation tools are targeted to web
+  accessibility experts with a deep knowledge of the topic. However, there are
+  also tools that allow the customization of the evaluation results or even
+  the user interface functionality to other audiences like, for instance:</p>
+  <ul>
       <li>web developers with no or little knowledge of accessibility, who
       need detailed information on how to correct the problems found to
       implement appropriate solutions; or</li>
@@ -605,38 +721,37 @@
     </ul> <p>The availability of such characteristics must be declared
   explicitly and presented in an adequate way to these target user groups.</p>
   <h4 id="policy">2.4.4 Policy environments</h4> <p>Although there is an
-  international effort to harmonize web
-  accessibility standards, there are still minor differences in accessibility requirements
-  in different countries. The tool should specify in its documentation which
-  policy environments are supported. Most of the tools are focused on the
+  international effort to harmonize web accessibility standards, there are
+  still minor differences in accessibility requirements in different
+  countries. The tool should specify in its documentation which policy
+  environments are supported. Most of the tools are focused on the
   implementation of the Web Content Accessibility Guidelines 2.0 [<a
-  href="#WCAG20">WCAG20</a>], because it is the accessibility standard most commonly referenced in
-  policies worldwide. </p> <h4 id="toolAccess">2.4.5 Tool
-  accessibility</h4> <p>Accessibility evaluation teams may include people with
-  disabilities. To that end, it is relevant that the tool itself can be used
-  with different assistive technologies and it is integrated with the
+  href="#WCAG20">WCAG20</a>], because it is the accessibility standard most
+  commonly referenced in policies worldwide. </p> <h4 id="toolAccess">2.4.5
+  Tool accessibility</h4> <p>Accessibility evaluation teams may include people
+  with disabilities. To that end, it is relevant that the tool itself can be
+  used with different assistive technologies and it is integrated with the
   accessibility <abbr>API</abbr>s of the running operating system. In such
   cases, compliance with the Authoring Tool Accessibility Guidelines 2.0 [<a
   href="#ATAG">ATAG</a>] becomes an important feature to support both from the
   perspective of the user interface of the tool and the access to its results.
-  </p><p>Additionally, when producing reports (for instance, in HTML format),
+  </p> <p>Additionally, when producing reports (for instance, in HTML format),
   it is important that they are accessible as well and in compliance with the
-  Web Content Accessibility Guidelines 2.0 [<a
-  href="#WCAG20">WCAG20</a>].</p><h2 id="profiles">3 Example profiles of
-  evaluation tools</h2> <p class="note">[<strong>Review Note:</strong> The
-  editors and the Working Group will welcome suggestions on new profiles from
-  tools to extend the listed examples. Furthermore, we welcome feedback on the
-  granularity of these profiles and their tabular presentation below.] </p>
-  <p>This section presents 3 examples of accessibility evaluation tools. <strong>They
-  are provided for illustration purposes and do not represent an existing
-  product.</strong> In every subsection, we will highlight some of the key features of
-  the tool. The table at the end of the chapter summarizes and complements
-  these textual descriptions.</p> 
-  <h3 id="plugin">3.1 Example Tool A: Browser plug-in
-  evaluating a rendered HTML page</h3> 
-  <p> Tool A is a browser plug-in, which
-  can perform a quick automatic accessibility evaluation on a rendered
-  <abbr>HTML</abbr> page. The main features of the tool are: </p> <ul>
+  Web Content Accessibility Guidelines 2.0 [<a href="#WCAG20">WCAG20</a>].</p>
+  <h2 id="profiles">3 Example profiles of evaluation tools</h2> <p
+  class="note">[<strong>Review Note:</strong> The editors and the Working
+  Group will welcome suggestions on new profiles from tools to extend the
+  listed examples. Furthermore, we welcome feedback on the granularity of
+  these profiles and their tabular presentation below.] </p> <p>This section
+  presents 3 examples of accessibility evaluation tools. <strong>They are
+  provided for illustration purposes and do not represent an existing
+  product.</strong> In every subsection, we will highlight some of the key
+  features of the tool. The table at the end of the chapter summarizes and
+  complements these textual descriptions.</p> <h3 id="plugin">3.1 Example Tool
+  A: Browser plug-in evaluating a rendered HTML page</h3> <p> Tool A is a
+  browser plug-in, which can perform a quick automatic accessibility
+  evaluation on a rendered <abbr>HTML</abbr> page. The main features of the
+  tool are: </p> <ul>
       <li>Testing of the Web Content Accessibility Guidelines 2.0 techniques
       that can be automatically analyzed. The configuration options of the
       tool are limited to perform one of the three conformance levels of WCAG:
@@ -654,16 +769,13 @@
       in the workflow of users who utilize <abbr>IDE</abbr>s in their
       development process.</li>
 
-      <li>The tool allows to export the evaluation results as an
+      <li>The tool allows the export of the evaluation results as an
       <abbr>EARL</abbr> report or as a <abbr>CSV</abbr> file.</li>
     </ul> <p><a href="#tab1">Table 1</a> presents an overview of the matching
-  features as described in section 2. </p> 
-    <h3 id="largeScale">3.2 Example Tool B:
-  Large-scale accessibility evaluation tool</h3> 
-    <p>Tool B is a large-scale
-  accessibility evaluation tool used to analyze web sites with large volumens of content. The main
-  features of the tool are: </p> 
-    <ul>
+  features as described in section 2. </p> <h3 id="largeScale">3.2 Example
+  Tool B: Large-scale accessibility evaluation tool</h3> <p>Tool B is a
+  large-scale accessibility evaluation tool used to analyze web sites with
+  large volumens of content. The main features of the tool are: </p> <ul>
       <li>It offers its users the possibility to crawl and evaluate complete
       websites. It also offers the possibility to customize which parts of the
       website are analyzed by defining or excluding different areas of the
@@ -693,17 +805,14 @@
       <li>The tool implements the corresponding interfaces to the
       accessibility <abbr>API</abbr>s of the operating system, being
       accessible to users with disabilities.</li>
-    </ul> 
-    <p><a href="#tab1">Table 1</a> presents an overview of the matching
-  features as described in section 2. </p> 
-    <h3 id="mobile">3.3 Example Tool C:
-  Accessibility evaluation tool for mobile applications</h3> 
-    <p>Tool C is an
+    </ul> <p><a href="#tab1">Table 1</a> presents an overview of the matching
+  features as described in section 2. </p> <h3 id="mobile">3.3 Example Tool C:
+  Accessibility evaluation tool for mobile applications</h3> <p>Tool C is an
   accessibility evaluation tool for web-based mobile applications. The tool
   does not support native applications, but it provides a simulation
   environment based upon a virtual machine environment that emulates the
   accessibility <abbr>API</abbr> of some devices. The main features of the
-  tool are:</p><ul>
+  tool are:</p> <ul>
       <li>The tool can emulate different user agents running on given mobile
       operating systems. Like tool A, it relies on the capabilities of the
       browser to support cookies, authentication and content negotiation, but
@@ -718,14 +827,12 @@
 
       <li>It detects only accessibility issues related to the implementation
       of the accessibility API of the given mobile operating systems.</li>
-    </ul><p><a href="#tab1">Table 1</a> presents an overview of the matching
-  features as described in section 2.</p> 
-    <h3 id="overview">3.4 Side-by-Side Comparison of the Example Tools</h3>
-    <p>This section presents a tabular comparison the
-  tool features described previously. <strong>They
-  are provided for illustration purposes and do not represent an existing
-  product.</strong></p> 
-  <table id="tab1">
+    </ul> <p><a href="#tab1">Table 1</a> presents an overview of the matching
+  features as described in section 2.</p> <h3 id="overview">3.4 Side-by-Side
+  Comparison of the Example Tools</h3> <p>This section presents a tabular
+  comparison the tool features described previously. <strong>They are provided
+  for illustration purposes and do not represent an existing
+  product.</strong></p> <table id="tab1">
       <caption>Table 1. List of features for the example tools described in
       section 3.</caption>
 
@@ -999,7 +1106,7 @@
 
         <td>not accessible</td>
       </tr>
-    </table> <h2 id="references">4 References</h2><dl>
+    </table> <h2 id="references">4 References</h2> <dl>
       <dt id="ATAG">ATAG</dt>
 
       <dd>Authoring Tool Accessibility Guidelines (ATAG) 2.0. W3C Candidate
@@ -1141,17 +1248,18 @@
       <dd>Web crawler. Wikipedia. <a
       href="http://en.wikipedia.org/wiki/Web_crawler">http://en.wikipedia.org/wiki/Web_crawler</a></dd>
 
-      <dt id="WebDriver">WebDriver</dt>
+      <dt id="_WebDriver">WebDriver</dt>
 
       <dd>WebDriver. W3C Working Draft 12 March 2013. Simon Stewart, David
       Burns (editors). Available at: <a
       href="http://www.w3.org/TR/webdriver/">http://www.w3.org/TR/webdriver/</a></dd>
-    </dl><h2 id="ack">Acknowledgements</h2><p>The editors would like to thank
-  the contributions from the Evaluation and Repair Tools Working Group
+    </dl> <h2 id="ack">Acknowledgements</h2> <p>The editors would like to
+  thank the contributions from the Evaluation and Repair Tools Working Group
   (<abbr>ERT</abbr> <abbr>WG</abbr>), and especially from Yod Samuel Martín,
   Philip Ackermann, Evangelos Vlachogiannis, Christophe Strobbe, Emmanuelle
-  Gutiérrez y Restrepo and Konstantinos Votis.</p>
-  <p>This publication was developed with support from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the European Commission <abbr title="Information Society Technologies">IST</abbr> Programme.</p>
-
-  </body>
+  Gutiérrez y Restrepo and Konstantinos Votis.</p> <p>This publication was
+  developed with support from the <a
+  href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the
+  European Commission <abbr
+  title="Information Society Technologies">IST</abbr> Programme.</p></body>
 </html>
