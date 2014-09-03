@@ -92,7 +92,7 @@
 
     <p>
         <a href="http://www.w3.org/"><img alt="W3C" height="48"
-            src="https://www.w3.org/Icons/w3c_home" width="72"/></a>
+                                          src="https://www.w3.org/Icons/w3c_home" width="72"/></a>
 
     <h1 id="title">Developers' Guide to Features of Web Accessibility Evaluation Tools</h1>
 
@@ -161,8 +161,9 @@
     defined by the <a href="http://www.w3.org/WAI/intro/atag">Authoring Tool Accessibility
         Guidelines (<abbr>ATAG</abbr>)</a>.</p>
 
-<div id="sotd"><h2 id="status">Status of this
-    document</h2>
+<div id="sotd">
+
+    <h2 id="status">Status of this document</h2>
 
     <p><em>This section describes the status of this document at the time of
         its publication. Other documents may supersede this document. A list of current
@@ -267,8 +268,7 @@
                     <li><a href="#filterTests">2.2.1 Selection of evaluation
                         tests</a></li>
 
-                    <li><a href="#manual">2.2.2 Test modes: automatic,
-                        semiautomatic and manual</a></li>
+                    <li><a href="#manual">2.2.2 Test modes</a></li>
 
                     <li><a href="#ownTests">2.2.3 Development of own tests and
                         test extensions</a></li>
@@ -401,8 +401,7 @@
     evaluation is currently out of date. It is expected to be updated before the next
     publication of this document.]</span></p>
 
-<h2 id="features">2 Features of an
-    accessibility evaluation tool</h2>
+<h2 id="features">2 Features of an accessibility evaluation tool</h2>
 
 <p class="note">[<strong>Review Note:</strong>
     Feedback on this section is particularly welcome, specifically with suggestions for
@@ -442,7 +441,9 @@
     the <abbr>HTTP(S)</abbr> protocol, the rendering of a web resource implies the
     manipulation and storage of many other components associated with it, like request and
     response headers, session information, cookies, authentication information, etc. These
-    associated components are also considered in the following. </p> <h4 id="typedoc">2.1.1 Content types</h4>
+    associated components are also considered in the following. </p>
+
+<h4 id="typedoc">2.1.1 Content types</h4>
 
 <p> Although the majority of web resources are
     <abbr>HTML</abbr> documents, there are many other types of resources that need to be
@@ -516,9 +517,9 @@
 
 <p>More
     information about this topic can be found in the <abbr title="World Wide Web Consortium">W3C</abbr>
-    Internationalization Activity [<a href="#W3Ci18n">W3Ci18n</a>]. </p> <h4 id="fragments"> 2.1.3 <abbr>DOM</abbr>
-    document
-    fragments </h4>
+    Internationalization Activity [<a href="#W3Ci18n">W3Ci18n</a>]. </p>
+
+<h4 id="fragments"> 2.1.3 <abbr>DOM</abbr> document fragments </h4>
 
 <p> Many websites are generated dynamically by combining code
     templates with <abbr>HTML</abbr> snippets that are created by website editors.
@@ -530,7 +531,9 @@
     evaluation tools by creating <abbr>DOM</abbr> <a href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-B63ED1A3">document
         fragments</a> [<a href="#DOM">DOM</a>] from these snippets. Evaluation tools may
     filter as well the accessibility tests according to their relevance to the document
-    fragment. </p> <h4 id="webapp">2.1.4 Dynamic content</h4>
+    fragment. </p>
+
+<h4 id="webapp">2.1.4 Dynamic content</h4>
 
 <p> Web and cloud
     applications are common on the web. These applications present similar interaction
@@ -540,7 +543,9 @@
     swiping with the fingers on a touch-screen or using the keyboard) that modify the
     status of the current page or load new resources. The evaluation tool needs to define
     and record these intermediate steps that can be later on interpreted by the tool (see
-    section on <a href="#webdriver">web testing APIs</a>). </p> <h4 id="cnegotiation">2.1.5 Content negotiation</h4>
+    section on <a href="#webdriver">web testing APIs</a>). </p>
+
+<h4 id="cnegotiation">2.1.5 Content negotiation</h4>
 
 <p> Content negotiation is a
     characteristic of the <abbr>HTTP(S)</abbr> protocol that enables web servers to
@@ -572,7 +577,9 @@
     supports cookies may store the cookie information provided by the server in an
     <abbr>HTTP</abbr> response and reuse it in subsequent requests. It may also allow the
     user to manually set cookie information to be used with the <abbr>HTTP</abbr>
-    requests. </p> <h4 id="authentication">2.1.7 Authentication</h4>
+    requests. </p>
+
+<h4 id="authentication">2.1.7 Authentication</h4>
 
 <p> Websites may
     require authentication (e.g., <abbr>HTTP</abbr> authentication, OpenID, etc.) to
@@ -583,7 +590,9 @@
     provide their credentials beforehand, so that they are used when accessing protected
     resources, or it prompts the user to enter her credentials upon the server request.
     The tool may also support the use of different credentials for different parts of a
-    web site.</p> <h4 id="session">2.1.8 Session tracking</h4>
+    web site.</p>
+
+<h4 id="session">2.1.8 Session tracking</h4>
 
 <p> Within
     <abbr>HTTP</abbr>, session information can be used for different purposes like, e.g.,
@@ -633,7 +642,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 <h3 id="testcustom">2.2 Testing functionality</h3>
 
 <p>This category includes
-    features targeted to the configuration of the tests to be performed.</p> <h4 id="filterTests">2.2.1 Selection of
+    features targeted to the configuration of the tests to be performed.</p>
+
+<h4 id="filterTests">2.2.1 Selection of
     evaluation tests</h4>
 
 <p>Accessibility evaluation
@@ -645,7 +656,8 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 <p>This feature shall
     not be confused with the fact that some tools are focused on testing a single
     characteristic of the web page, like for example, a tool to test color contrast.</p>
-<h4 id="manual">2.2.2 Test modes: automatic, semiautomatic and manual</h4>
+
+<h4 id="manual">2.2.2 Test modes</h4>
 
 <p>According to the <a href="http://www.w3.org/TR/EARL10-Schema/#TestMode">Evaluation
     and Report Language 1.0</a> [<a href="#EARL10">EARL10</a>] and to the <a
@@ -679,13 +691,17 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     generated by the tool and which was manually modified). Since automatic tests only
     cover a subset of accessibility issues, full accessibility conformance can only be
     ensured by supporting developers and accessibility experts to carry out the tests in
-    manual and semiautomatic mode as well.</p> <h4 id="ownTests">2.2.3 Development of own
+    manual and semiautomatic mode as well.</p>
+
+<h4 id="ownTests">2.2.3 Development of own
     tests and test extensions</h4>
 
 <p> Developers and quality assurance engineers
     sometimes need to implement their own tests. For that purpose, some tools define an
     <abbr>API</abbr> that helps developers to create their own tests, which respond to
-    internal demands within their organization. </p> <h4 id="webdriver">2.2.4 Test
+    internal demands within their organization. </p>
+
+<h4 id="webdriver">2.2.4 Test
     automation</h4>
 
 <p> When evaluating accessibility of web sites and applications, it is
@@ -703,7 +719,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     interpreted in its widest sense. It could be a set of computer screens presenting
     different tables and graphics, a set of icons superimposed on top of the content
     displayed to the user indicating different types of errors/warnings, a HTML document
-    or a word processor document summarizing the evaluation results, etc.</p> <h4 id="StdRep">2.3.1 Reporting
+    or a word processor document summarizing the evaluation results, etc.</p>
+
+<h4 id="StdRep">2.3.1 Reporting
     languages</h4>
 
 <p>Support for a reporting language may be
@@ -734,27 +752,35 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 <p>The implementation of
     monitoring features requires that the tool has a persistence layer (a database, for
     example) where results could be stored and retrieved at a later stage to compare
-    different evaluation rounds.</p> <h4 id="import">2.3.3 Import/export
+    different evaluation rounds.</p>
+
+<h4 id="import">2.3.3 Import/export
     functionality</h4>
 
 <p>In many evaluation methodologies, accessibility experts and
     quality assurance engineers use different tools. If the evaluation tool supports
     import and export of test results (see <a href="#StdRep">Section 2.3.1</a>), the tool
-    may be easily integrated in such environments. </p> <h4 id="customReport">2.3.4 Report
+    may be easily integrated in such environments. </p>
+
+<h4 id="customReport">2.3.4 Report
     customization</h4>
 
 <p>This feature allows the customization of the resulting report
     according to different criteria, such as the target audience, the type of results, the
     part of the site being analyzed, the type of content, etc. This feature may also allow
     the developer or the accessibility expert to add additional comments in the
-    report.</p> <h4 id="aggregation">2.3.5 Results aggregation</h4>
+    report.</p>
+
+<h4 id="aggregation">2.3.5 Results aggregation</h4>
 
 <p>The presentation of
     evaluation results is influenced by the underlying hierarchy of the accessibility
     techniques with guidelines and success criteria. Aggregation is also related to the
     structure of the page. For instance, accessibility errors may be listed for a whole
     web resource or presented for concrete components like images, videos, tables, forms,
-    links, etc.</p> <h4 id="conformance">2.3.6 Conformance</h4>
+    links, etc.</p>
+
+<h4 id="conformance">2.3.6 Conformance</h4>
 
 <p>Conformance statements
     are demanded by some users to quickly assess the status of their website. When issuing
@@ -763,7 +789,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     aggregate results as described in the previous section.</p>
 
 <p> As described in <a href="#manual">Section 2.2.2</a>, full accessibility compliance can only be achieved
-    when manual testing and/or semi-automated checking have been implemented. </p> <h4 id="repair">2.3.7 Error repair
+    when manual testing and/or semi-automated checking have been implemented. </p>
+
+<h4 id="repair">2.3.7 Error repair
     guidance</h4>
 
 <p>The majority of web developers have
@@ -788,7 +816,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     describe the integration into the development and edition workflow of the user or are
     targeted to the customization of different aspects of the tool depending on its
     audience, like for instance, user interface language, user interface functionality,
-    user interface accessibility, etc.</p> <h4 id="workflow">2.4.1 Workflow
+    user interface accessibility, etc.</p>
+
+<h4 id="workflow">2.4.1 Workflow
     integration</h4>
 
 <p>Accessibility evaluation tools present different interfaces, which
@@ -832,7 +862,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
         translations of the
         Web Content Accessibility Guidelines</a>. It must be considered as well that some
     accessibility tests need to be customized to other languages, like for instance, such
-    as those related to readability. </p> <h4 id="customAudience">2.4.3 Functionality
+    as those related to readability. </p>
+
+<h4 id="customAudience">2.4.3 Functionality
     customization to different audiences</h4>
 
 <p>Typically, evaluation tools are targeted
@@ -851,7 +883,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     </li>
 </ul>
 <p>The availability of such characteristics must be declared explicitly and
-    presented in an adequate way to these target user groups.</p> <h4 id="policy">2.4.4
+    presented in an adequate way to these target user groups.</p>
+
+<h4 id="policy">2.4.4
     Policy environments</h4>
 
 <p>Although there is an international effort to harmonize web
@@ -860,7 +894,9 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     which policy environments are supported. Most of the tools are focused on the
     implementation of the Web Content Accessibility Guidelines 2.0 [<a href="#WCAG20">WCAG20</a>], because it is the
     accessibility standard most commonly
-    referenced in policies worldwide. </p> <h4 id="toolAccess">2.4.5 Tool
+    referenced in policies worldwide. </p>
+
+<h4 id="toolAccess">2.4.5 Tool
     accessibility</h4>
 
 <p>Accessibility evaluation teams may include people with
