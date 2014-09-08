@@ -21,6 +21,10 @@
             border-bottom: dotted 1px #444;
         }
 
+        q {
+            font-style: italic;
+        }
+
         ul.w3ctoc li {
             list-style: none;
         }
@@ -193,7 +197,8 @@
         <li>Feedback on the included feature descriptions.</li>
     </ul>
     <p>Please send comments on this Developers' Guide to Features of Web
-        Accessibility Evaluation Tools document by 15 August 2014 to <a href="mailto:public-wai-ert-tools@w3.org">public-wai-ert-tools@w3.org</a>
+        Accessibility Evaluation Tools document by 15 August 2014 to
+        <a href="mailto:public-wai-ert-tools@w3.org">public-wai-ert-tools@w3.org</a>
         (publicly
         visible <a href="http://lists.w3.org/Archives/Public/public-wai-ert-tools/">mailing
             list archive</a>).</p>
@@ -241,7 +246,7 @@
         <ul>
             <li><a href="#subjects">2.1 Retrieving and rendering web content</a>
                 <ul>
-                    <li><a href="#typedoc">2.1.1 Content-types</a></li>
+                    <li><a href="#resformats">2.1.1 Resource formats</a></li>
 
                     <li><a href="#encoding">2.1.2 Content encoding and content
                         language</a></li>
@@ -260,6 +265,8 @@
                     <li><a href="#session">2.1.8 Session tracking </a></li>
 
                     <li><a href="#crawling">2.1.9 Crawling</a></li>
+
+                    <li><a href="#sampling">2.1.10 Sampling</a></li>
                 </ul>
             </li>
 
@@ -353,23 +360,15 @@
     describes the types of features that can be provided by tools to support accessibility
     evaluation in a variety of situations and contexts.</p>
 
-<h3 id="tools">1.1 Evaluation
-    Tools</h3>
+<h3 id="tools">1.1 Evaluation Tools</h3>
 
 <p>In the context of this document, an <strong id="evaltool_def">evaluation
     tool</strong> is a (web-based or non-web-based) software application that enables its
     users to evaluate web content according to specific quality criteria, such as web
     accessibility requirements. This includes but is not limited to the following
     (non-mutually-exclusive) types of tools:</p>
-<ul>
-    <li id="authoringtool_def"><strong>Web authoring tool</strong> - <cite>Any
-        web-based or non-web-based application(s) that can be used by authors (alone
-        or collaboratively) to create or modify web content for use by other people
-        (other authors or end users)</cite>; from the <a href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Authoring
-        Tool
-        Accessibility Guidelines (<abbr>ATAG</abbr>) 2.0</a>;
-    </li>
 
+<ul>
     <li id="qatool_def"><strong>Web quality assurance tool</strong> - Any
         (web-based or non-web-based) software application that is specifically
         designed to evaluate web content according to quality criteria (that are
@@ -380,15 +379,21 @@
         (web-based or non-web-based) software application that is specifically
         designed to evaluate web content according to accessibility requirements, such
         as the <a href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility
-            Guidelines (<abbr>WCAG</abbr>) 2.0</a>.
+            Guidelines (<abbr>WCAG</abbr>) 2.0</a>;
+    </li>
+
+    <li id="authoringtool_def"><strong>Web authoring tool </strong> -
+        <q cite="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Any
+        web-based or non-web-based application(s) that can be used by authors (alone
+        or collaboratively) to create or modify web content for use by other people
+        (other authors or end users)</q> and which provides an evaluation functionality.
     </li>
 </ul>
 <p>Note that these terms are not mutually exclusive. A web accessibility
-    evaluation tool is a particular type of web quality assurance tool. In some cases it
-    can be part of a web authoring tool, or considered to be a web authoring tool
-    depending on the functionality that it provides (see the <a
-            href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool"><abbr>ATAG</abbr> 2.0
-        definition for <em>authoring tool</em></a>). Also, a web quality assurance tool might
+    evaluation tool is a particular type of web quality assurance tool.  In other cases
+    an evaluation tool could be considered to be a web authoring tool, for example, if
+    it provides repair functionality that modifies the content.
+    Also, a web quality assurance tool might
     not check for accessibility criteria but might provide other functionality, such as
     for managing quality assurance processes and reporting evaluation results, that may be
     useful for web accessibility evaluation. This document refers to any of these tools
@@ -397,7 +402,9 @@
 <p><abbr title="World Wide Web Consortium">W3C</abbr> Web Accessibility Initiative
     (<abbr>WAI</abbr>) provides a <a href="http://www.w3.org/WAI/ER/tools/">list of web
         accessibility evaluation tools</a> that can be searched according to different
-    criteria such as the features listed in this document. <span class="highlight">[<strong>Editor Note:</strong> The list of web accessibility
+    criteria such as the features listed in this document.</p>
+
+<p><span class="highlight">[<strong>Editor Note:</strong> The list of web accessibility
     evaluation is currently out of date. It is expected to be updated before the next
     publication of this document.]</span></p>
 
@@ -443,77 +450,78 @@
     response headers, session information, cookies, authentication information, etc. These
     associated components are also considered in the following. </p>
 
-<h4 id="typedoc">2.1.1 Content types</h4>
+<h4 id="resformats">2.1.1 Resource formats</h4>
 
-<p> Although the majority of web resources are
+<p>Although the majority of web resources are
     <abbr>HTML</abbr> documents, there are many other types of resources that need to be
     considered when analyzing web accessibility. For example, resources like
     <abbr>CSS</abbr> stylesheets or JavaScript scripts allow the modification of markup
     documents in the user agent when they are loaded or via user interaction. Many
-    accessibility tests are the result of the interpretation of those resources and are
-    therefore important for an accessibility evaluation. Accessibility evaluation tools
-    should state which types of formats they support.</p>
+    accessibility tests are the result of the interpretation of those resources
+    and their combinations, and are therefore important for an accessibility evaluation.
+    Accessibility evaluation tools
+    should state which types of resource formats they support.</p>
 
-<p>Some types of content formats
-    include:</p>
+<p>The most common resource formats include:</p>
 <ul>
-    <li><strong>Markup documents</strong>. These are normally <abbr>HTML</abbr>
+    <li><strong>Markup resources</strong>. These are normally <abbr>HTML</abbr>
         [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>] or <abbr>XML</abbr>
         documents. Processing these resources typically requires the ability to build
-        a Document Object Model (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>] according
-        to the different specifications, which can then be parsed and analyzed.
-    </li>
-
-    <li><strong>Style resources</strong>. These are presentation modifiers, which
-        conform to the different <abbr>CSS</abbr> specifications [<a href="#CSS2">CSS2</a>, <a href="#CSS3">CSS3</a>].
-        The interpretation of
-        stylesheets is relevant for many accessibility techniques.
-    </li>
-
-    <li><strong>Script resources</strong>. These are components that modify the
-        content, the presentation, or the behavior of web resources and web
-        applications, be it because of user interaction or because of other functional
-        requirements (e.g., notifications, dynamic updates, etc.). These resources
-        play a critical role in Rich Internet Applications. Ignoring these resources
-        may lead to missing accessibility problems or to report non-existing errors.
-        The scripting language commonly used on the web is JavaScript, based upon
-        ECMAScript [<a href="#ECMAScript">ECMAScript</a>] standardized by the <a
-                href="http://www.ecma-international.org/">Ecma International</a> standards
-        organization.
+        a Document Object Model (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>],
+        in combination with style (<abbr>CSS</abbr>) and scripting (JavaScript) resources
+        (see below), which can then be parsed and analyzed:
+        <ul>
+            <li><strong>Style resources</strong>. These are presentation modifiers, which
+                conform to the different <abbr>CSS</abbr> specifications
+                [<a href="#CSS2">CSS2</a>, <a href="#CSS3">CSS3</a>].
+            </li>
+            <li><strong>Script resources</strong>. These are components that modify the
+                content, the presentation, or the behavior of web resources and web
+                applications, be it because of user interaction or because of other functional
+                requirements (e.g., notifications, dynamic updates, etc.). These resources
+                play a critical role in Rich Internet Applications. Ignoring these resources
+                may lead to missing accessibility problems or to report non-existing errors.
+                The scripting language commonly used on the web is JavaScript, based upon
+                ECMAScript [<a href="#ECMAScript">ECMAScript</a>] standardized by the <a
+                        href="http://www.ecma-international.org/">Ecma International</a> standards
+                organization.
+            </li>
+        </ul>
     </li>
 
     <li><strong>Media resources</strong>. These are images (static or animated),
-        movies or audio tracks, which are standalone or embedded in a web resource.
+        movies or audio tracks, which are standalone or embedded within another web resource.
         From the accessibility standpoint, the evaluation of these resources is
         relevant for issues like color contrast, color blindness or media
         alternatives, for instance.
     </li>
 
-    <li><strong>Other document formats</strong>. Many reports and administrative
-        information are available in other document formats, typically in government
+    <li><strong>Document formats</strong>. Many reports and administrative
+        information are available in document formats, typically in government
         websites. The format most commonly found is <abbr>PDF</abbr>, initially
         developed by Adobe [<a href="#PDF">PDF</a>] and later on standardised by
         <abbr>ISO</abbr>. Although not very frequent on the web, it is possible to
-        encounter as well other formats like Apache OpenOffice [<a href="#ODF">ODF</a>] or Microsoft Office [<a
-                href="#OOXML">OOXML</a>].
+        encounter other formats as well, like the Open Document Format [<a href="#ODF">ODF</a>]
+        or Microsoft Office formats [<a href="#OOXML">OOXML</a>].
     </li>
 
-    <li><strong>Resources with other formats</strong>. Examples of these could be
+    <li><strong>Resources with other formats</strong>. Examples of these are
         <a href="http://www.adobe.com/products/flash.html">Adobe Flash</a>, <a href="http://www.java.com/">Java
             applets</a>, <a href="http://www.microsoft.com/silverlight/">Microsoft Silverlight</a>, etc.
         These resources are normally found embedded within <abbr>HTML</abbr> pages as
         applications.
     </li>
 </ul>
+
 <h4 id="encoding">2.1.2 Content encoding and content language</h4>
 
-<p>This
-    feature identifies which content languages and encodings are supported by the
-    evaluation tool. The web is a multilingual and multicultural space in which
-    information can be presented in different languages, thus evaluation tools should be
-    in the position to address this issue. Furthermore, web content can be transmitted
-    using different character encodings and sets (like ISO-8859-1, UTF-8, UTF-16, etc.),
-    which demands from the evaluation tools the capacity to handle them.</p>
+<p>This feature identifies which content languages and encodings are supported by the
+    evaluation tool. Because the web is a multilingual and multicultural space in which
+    information can be presented in different languages, evaluation tools should be
+    in the position to handle them. Additionally, web content can be transmitted using
+    different character encodings and sets. With HTML5 [<a href="#HTML5">HTML5</a>]
+    there is a push to use UTF-8 as the default encoding and abandon other legacy encodings.
+    However, it is recommended that evaluation tools offer support for this legacy content.</p>
 
 <p>More
     information about this topic can be found in the <abbr title="World Wide Web Consortium">W3C</abbr>
@@ -613,7 +621,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     point and a set of options. The most common features of a web crawler (configuration
     capabilities) are:</p>
 <ul>
-    <li>Types of content-types crawled (see <a href="#typedoc">section
+    <li>Types of content-types crawled (see <a href="#resformats">section
         2.1.1</a>).
     </li>
 
@@ -629,16 +637,32 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
         performance by having a tool able to crawl in parallel threads.
     </li>
 
-    <li>Avoidance of duplicate downloads. It is typical for web resources to link
+    <li>Avoidance of duplicate downloads and endless loops. Web resources may link
         to the same resource many times (for example, stylesheets, main navigation
-        pages, images, etc.). If the crawler is not able to identify such issues, it
+        pages, images, etc.) in the same website. If the crawler is not able to identify such issues, it
         may lead to a great performance loss or to other runtime problems.
     </li>
 
-    <li>Capabilities related to features described in previous sections like:
-        content negotiation, authentication support or session tracking.
+    <li>Capabilities related to features described in previous sections such as the
+        extraction of links from <a href="#webapp">dynamically generated content</a>,
+        <a href="#cnegotiation">content negotiation</a>,
+        <a href="#authentication">authentication support</a> or
+        <a href="#session">session tracking</a>.
     </li>
 </ul>
+
+<h4 id="sampling">2.1.10 Sampling</h4>
+
+<p>This feature refers to the capability of an evaluation tool to select a subset of web
+    pages within a website according to different criteria. These criteria correspond to
+    different parameters: random selection, user access visits, modification dates,
+    type of content, pages with frequent user interaction (such as search forms or
+    feedback forms), manual selection by the evaluation tool user, etc.</p>
+
+<p>This feature is important for manual tests in large websites where
+    it is practically impossible to carry out manual accessibility tests in al
+    of its web resources.</p>
+
 <h3 id="testcustom">2.2 Testing functionality</h3>
 
 <p>This category includes
@@ -659,6 +683,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 
 <h4 id="manual">2.2.2 Test modes</h4>
 
+<!-- TODO: cites at then of section (change order) -->
 <p>According to the <a href="http://www.w3.org/TR/EARL10-Schema/#TestMode">Evaluation
     and Report Language 1.0</a> [<a href="#EARL10">EARL10</a>] and to the <a
         href="http://www.w3.org/TR/ATAG20/#def-Checking">Authoring Tool Accessibility
@@ -680,7 +705,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
         the outcome of the test.
     </li>
 </ul>
-<p>There are some evaluation tools that support accessibility experts by
+<p>There are some evaluation tools that support tool users when
     performing semiautomatic or manual tests. This support is normally introduced by
     highlighting in the source code or in the rendered document areas which could be
     originating accessibility problems or where human intervention is needed (for
@@ -818,8 +843,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     audience, like for instance, user interface language, user interface functionality,
     user interface accessibility, etc.</p>
 
-<h4 id="workflow">2.4.1 Workflow
-    integration</h4>
+<h4 id="workflow">2.4.1 Workflow integration</h4>
 
 <p>Accessibility evaluation tools present different interfaces, which
     allow their integration into the standard development workflow of the user. The
@@ -848,6 +872,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 
     <li>etc.</li>
 </ul>
+
 <h4 id="localization">2.4.2 Localization and internationalization</h4>
 
 <p>Localization and internationalization are important to address worldwide markets.
@@ -857,11 +882,10 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     information about this topic can be found in the <abbr title="World Wide Web Consortium">W3C</abbr>
     Internationalization Activity [<a href="#W3Ci18n">W3Ci18n</a>] and in [<a href="#I18N">I18N</a>]. </p>
 
-<p> From the
-    accessibility standpoint, it is recommended to use the <a href="http://www.w3.org/WAI/WCAG20/translations.html">authorized
-        translations of the
+<p>From the accessibility standpoint, it is recommended to use the
+    <a href="http://www.w3.org/WAI/WCAG20/translations.html">authorized translations of the
         Web Content Accessibility Guidelines</a>. It must be considered as well that some
-    accessibility tests need to be customized to other languages, like for instance, such
+    accessibility tests need to be customized to other languages, such
     as those related to readability. </p>
 
 <h4 id="customAudience">2.4.3 Functionality
@@ -885,8 +909,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
 <p>The availability of such characteristics must be declared explicitly and
     presented in an adequate way to these target user groups.</p>
 
-<h4 id="policy">2.4.4
-    Policy environments</h4>
+<h4 id="policy">2.4.4 Policy environments</h4>
 
 <p>Although there is an international effort to harmonize web
     accessibility standards, there are still minor differences in accessibility
@@ -896,8 +919,7 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     accessibility standard most commonly
     referenced in policies worldwide. </p>
 
-<h4 id="toolAccess">2.4.5 Tool
-    accessibility</h4>
+<h4 id="toolAccess">2.4.5 Tool accessibility</h4>
 
 <p>Accessibility evaluation teams may include people with
     disabilities. To that end, it is relevant that the tool itself can be used with
@@ -907,12 +929,12 @@ scenarios. <h4 id="crawling">2.1.9 Crawling</h4>
     important feature to support both from the perspective of the user interface of the
     tool and the access to its results. </p>
 
-<p>Additionally, when producing reports (for
-    instance, in HTML format), it is important that they are accessible as well and in
-    compliance with the Web Content Accessibility Guidelines 2.0 [<a href="#WCAG20">WCAG20</a>].</p>
+<p>When producing evaluation reports to be read outside the tool itself (for instance, a
+    <abbr>HTML</abbr> report to be read in a browser), it is important to ensure that
+    they follow the accessibility recommendations of the Web Content Accessibility
+    Guidelines 2.0 [<a href="#WCAG20">WCAG20</a>].</p>
 
-<h2 id="profiles">3 Example profiles of evaluation
-    tools</h2>
+<h2 id="profiles">3 Example profiles of evaluation tools</h2>
 
 <p class="note">[<strong>Review Note:</strong> The editors and the Working
     Group will welcome suggestions on new profiles from tools to extend the listed
