@@ -105,11 +105,11 @@
     <h1 id="title">Developers' Guide to Features of Web Accessibility Evaluation
         Tools</h1>
 
-    <h2 id="w3c-doctype">Editors' Draft 10 September 2014</h2>
+    <h2 id="w3c-doctype">Editors' Draft 17 September 2014</h2>
     <dl>
         <dt>This version:</dt>
 
-        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20140910/">http://www.w3.org/TR/2014/WD-WAET-20140910/</a>
+        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20140917/">http://www.w3.org/TR/2014/WD-WAET-20140917/</a>
         </dd>
 
         <dt>Latest version:</dt>
@@ -275,7 +275,7 @@
                     <li><a href="#fragments">2.1.3 <abbr>DOM</abbr> Document
                         fragments</a></li>
 
-                    <li><a href="#webapp">2.1.4 Dynamic content</a></li>
+                    <li><a href="#rias">2.1.4 Rich Internet Applications</a></li>
 
                     <li><a href="#cnegotiation">2.1.5 Content negotiation</a>
                     </li>
@@ -302,7 +302,8 @@
                     <li><a href="#ownTests">2.2.3 Development of own tests and
                         test extensions</a></li>
 
-                    <li><a href="#webdriver">2.2.4 Test automation</a></li>
+                    <li><a href="#webdriver">2.2.4 User interaction and test
+                        automation</a></li>
                 </ul>
             </li>
 
@@ -525,7 +526,10 @@
         movies or audio tracks, which are standalone or embedded within another
         web resource. From the accessibility standpoint, the evaluation of these
         resources is relevant for issues like color contrast, color blindness or
-        media alternatives, for instance.
+        media alternatives, for instance. There are few tools known to test
+        automatically media resources from an accessibility standpoint. This
+        opens a new area of research to analyze such resources with machine
+        learning algorithms and the like.
     </li>
 
     <li><strong>Document formats</strong>. Many reports and administrative
@@ -577,17 +581,15 @@
     tools may filter as well the accessibility tests according to their
     relevance to the document fragment. </p>
 
-<h4 id="webapp">2.1.4 Dynamic content</h4>
+<h4 id="rias">2.1.4 Rich Internet Applications</h4>
 
-<p> Web and cloud applications are common on the web. These applications present
-    similar interaction patterns as those of desktop applications and contain
-    dynamic content and interface updates. Tools that evaluate such applications
-    should emulate and record different user actions (e.g., activating interface
-    components by clicking with the mouse, swiping with the fingers on a
-    touch-screen or using the keyboard) that modify the status of the current
-    page or load new resources. The evaluation tool needs to define and record
-    these intermediate steps that can be later on interpreted by the tool (see
-    section on <a href="#webdriver">web testing APIs</a>). </p>
+<p>Web and cloud applications are common on the web. These applications
+    generate dynamically webpages that are the result of the interpretation of
+    different style and script resources as mentioned in
+    <a href="#resformats">section 2.1.1</a>. Tools that only
+    evaluate the static HTML code will miss the complexity
+    of the interface presented to the user.
+</p>
 
 <h4 id="cnegotiation">2.1.5 Content negotiation</h4>
 
@@ -678,7 +680,7 @@ session tracking should be able to handle these different scenarios. <h4
     </li>
 
     <li>Capabilities related to features described in previous sections such as
-        the extraction of links from <a href="#webapp">dynamically generated
+        the extraction of links from <a href="#rias">dynamically generated
             content</a>, <a href="#cnegotiation">content negotiation</a>, <a
                 href="#authentication">authentication support</a> or <a
                 href="#session">session tracking</a>.
@@ -747,7 +749,8 @@ session tracking should be able to handle these different scenarios. <h4
         href="http://www.w3.org/TR/ATAG20/#def-Checking">Authoring Tool
     Accessibility Guidelines 2.0</a> [<a href="#ATAG20">ATAG20</a>].)</p>
 
-<p>Evaluation tools may support their users when performing semiautomatic or
+<p>Support for automatic testing varies significantly between tools.
+    Evaluation tools may support their users when performing semiautomatic or
     manual tests. This support could be introduced, for example, by
     highlighting in the source code or in the rendered document areas that
     create accessibility problems or where human intervention is needed
@@ -767,13 +770,18 @@ session tracking should be able to handle these different scenarios. <h4
     helps developers to create their own tests, which respond to internal
     demands within their organization. </p>
 
-<h4 id="webdriver">2.2.4 Test automation</h4>
+<h4 id="webdriver">2.2.4 User interaction and test automation</h4>
 
 <p> When evaluating accessibility of web sites and applications, it is sometimes
-    desirable to create scripts that emulate user interaction. With the growing
+    desirable to create scripts, which emulate user interaction (e.g.,
+    activating interface components by clicking with the mouse, swiping with
+    the fingers on a touch-screen or using the keyboard) that modify the
+    status of the current page or load new resources.</p>
+
+<p>With the growing
     complexity of web applications, there is an effort to standardize such
-    interfaces. One of them is, for instance, the WebDriver <abbr>API</abbr> [<a
-            href="#_WebDriver">WebDriver</a>]. Tools that support this API
+    interfaces. One of them is, for instance, the WebDriver <abbr>API</abbr>
+    [<a href="#_WebDriver">WebDriver</a>]. Tools that support this API
     enable developers to write tests that automate the application's and the
     end-users' behaviour.</p>
 
