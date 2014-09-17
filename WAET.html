@@ -342,6 +342,8 @@
                     <li><a href="#policy">2.4.4 Policy environments</a></li>
 
                     <li><a href="#toolAccess">2.4.5 Tool accessibility</a></li>
+
+                    <li><a href="#platform">2.4.6 Platform</a></li>
                 </ul>
             </li>
         </ul>
@@ -843,12 +845,19 @@ session tracking should be able to handle these different scenarios. <h4
 
 <h4 id="aggregation">2.3.5 Results aggregation</h4>
 
-<p>The presentation of evaluation results is influenced by the underlying
-    hierarchy of the accessibility techniques with guidelines and success
-    criteria. Aggregation is also related to the structure of the page. For
-    instance, accessibility errors may be listed for a whole web resource or
-    presented for concrete components like images, videos, tables, forms, links,
-    etc.</p>
+<p>The presentation of evaluation results and their aggregation is influenced
+    by different aspects:</p>
+
+<ul>
+    <li>the hierarchy of the accessibility recommendations with
+        principles, guidelines, success criteria, techniques and failures;</li>
+    <li>the structure of the page (for example, accessibility errors may be
+        listed for a whole web resource or presented for concrete components
+        like images, videos, tables, forms, links, etc.);</li>
+    <li>the progress in time (for example, with a list of resolved, existing
+        and new errors);</li>
+    <li>etc.</li>
+</ul>
 
 <h4 id="conformance">2.3.6 Conformance</h4>
 
@@ -983,6 +992,15 @@ session tracking should be able to handle these different scenarios. <h4
     instance, a <abbr>HTML</abbr> report to be read in a browser), it is
     important to ensure that they follow the accessibility recommendations of
     the Web Content Accessibility Guidelines 2.0 [<a href="#WCAG20">WCAG20</a>].
+</p>
+
+<h4 id="platform">2.4.6 Platform</h4>
+
+<p>Accessibility evaluation tools present different architectures and run on
+    different platforms. Typical platform examples are: desktop applications,
+    browser add-ons, distributed enterprise applications (with client- and
+    server-side components), etc. Additionally, some of them include a
+    persistence layer in the form of a database to enable monitoring of results.
 </p>
 
 <h2 id="profiles">3 Example profiles of evaluation tools</h2>
