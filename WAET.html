@@ -105,11 +105,11 @@
     <h1 id="title">Developers' Guide to Features of Web Accessibility Evaluation
         Tools</h1>
 
-    <h2 id="w3c-doctype">Editors' Draft 17 September 2014</h2>
+    <h2 id="w3c-doctype">Editors' Draft 24 September 2014</h2>
     <dl>
         <dt>This version:</dt>
 
-        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20140917/">http://www.w3.org/TR/2014/WD-WAET-20140917/</a>
+        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20140924/">http://www.w3.org/TR/2014/WD-WAET-20140924/</a>
         </dd>
 
         <dt>Latest version:</dt>
@@ -314,7 +314,7 @@
                     <li><a href="#database">2.3.2 Persistence of results</a>
                     </li>
 
-                    <li><a href="#import">2.3.3 Import/export functionality</a>
+                    <li><a href="#import">2.3.3 Importing and exporting of results</a>
                     </li>
 
                     <li><a href="#customReport">2.3.4 Report customization</a>
@@ -495,7 +495,7 @@
 
 <p>The most common resource formats include:</p>
 <ul>
-    <li><strong>Markup resources</strong>. These are normally <abbr>HTML</abbr>
+    <li><strong>Markup formats</strong>. These are normally <abbr>HTML</abbr>
         [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>] or
         <abbr>XML</abbr> documents. Processing these resources typically
         requires the ability to build a Document Object Model (<abbr>DOM</abbr>)
@@ -503,12 +503,12 @@
         and scripting (JavaScript) resources (see below), which can then be
         parsed and analyzed:
         <ul>
-            <li><strong>Style resources</strong>. These are presentation
+            <li><strong>Style formats</strong>. These are presentation
                 modifiers, which conform to the different <abbr>CSS</abbr>
                 specifications [<a href="#CSS2">CSS2</a>, <a
                         href="#CSS3">CSS3</a>].
             </li>
-            <li><strong>Script resources</strong>. These are components that
+            <li><strong>Script formats</strong>. These are components that
                 modify the content, the presentation, or the behavior of web
                 resources and web applications, be it because of user
                 interaction or because of other functional requirements (e.g.,
@@ -524,14 +524,18 @@
         </ul>
     </li>
 
-    <li><strong>Media resources</strong>. These are images (static or animated),
+    <li><strong>Media formats</strong>. These are images (static or animated),
         movies or audio tracks, which are standalone or embedded within another
-        web resource. From the accessibility standpoint, the evaluation of these
-        resources is relevant for issues like color contrast, color blindness or
-        media alternatives, for instance. There are few tools known to test
-        automatically media resources from an accessibility standpoint. This
+        web resource. It must be highlighted that media resources may be
+        presented in different ways and consist of several resources, for
+        example, a media track and its subtitles in different languages.
+        From the accessibility standpoint, the evaluation of these
+        resources is relevant to some evaluation requirements, such as
+        ensuring that there is an adequate contrast between foreground and
+        background colors in a given image. There are few tools known to test
+        automatically accessibility of media resources. This
         opens a new area of research to analyze such resources with machine
-        learning algorithms and the like.
+        learning algorithms, for instance.
     </li>
 
     <li><strong>Document formats</strong>. Many reports and administrative
@@ -545,10 +549,11 @@
     </li>
 
     <li><strong>Resources with other formats</strong>. Examples of these are <a
-            href="http://www.adobe.com/products/flash.html">Adobe Flash</a>, <a
+            href="http://www.adobe.com/products/flash.html">Adobe Flash
+            movies or applications</a>, <a
             href="http://www.java.com/">Java applets</a>, <a
             href="http://www.microsoft.com/silverlight/">Microsoft
-        Silverlight</a>, etc. These resources are normally found embedded within
+        Silverlight applications</a>, etc. These resources are normally found embedded within
         <abbr>HTML</abbr> pages as applications.
     </li>
 </ul>
@@ -568,7 +573,7 @@
         title="World Wide Web Consortium">W3C</abbr> Internationalization
     Activity [<a href="#W3Ci18n">W3Ci18n</a>]. </p>
 
-<h4 id="fragments"> 2.1.3 <abbr>DOM</abbr> document fragments </h4>
+<h4 id="fragments">2.1.3 <abbr>DOM</abbr> document fragments </h4>
 
 <p> Many websites are generated dynamically by combining code templates with
     <abbr>HTML</abbr> snippets that are created by website editors. Evaluation
@@ -774,18 +779,16 @@ session tracking should be able to handle these different scenarios. <h4
 
 <h4 id="webdriver">2.2.4 User interaction and test automation</h4>
 
-<p> When evaluating accessibility of web sites and applications, it is sometimes
-    desirable to create scripts, which emulate user interaction (e.g.,
+<p> When evaluating accessibility of web sites and applications, it is some
+    times convenient to create scripts, which emulate user interaction (e.g.,
     activating interface components by clicking with the mouse, swiping with
     the fingers on a touch-screen or using the keyboard) that modify the
     status of the current page or load new resources.</p>
 
-<p>With the growing
-    complexity of web applications, there is an effort to standardize such
-    interfaces. One of them is, for instance, the WebDriver <abbr>API</abbr>
-    [<a href="#_WebDriver">WebDriver</a>]. Tools that support this API
-    enable developers to write tests that automate the application's and the
-    end-users' behaviour.</p>
+<p> There are tools that enable developers to write scripts that automate the
+    emulation of application's and the end-users' behavior. There is an effort
+    to standardize a common API for such tools. One of these APIs is the W3C
+    WebDriver <abbr>API</abbr> [<a href="#_WebDriver">WebDriver</a>].</p>
 
 <h3 id="reporting">2.3 Reporting and monitoring</h3>
 
@@ -799,19 +802,14 @@ session tracking should be able to handle these different scenarios. <h4
 
 <h4 id="StdRep">2.3.1 Reporting languages</h4>
 
-<p>Support for a reporting language may be a requirement for some users. There
-    are cases where tool users want to filter results, exchange results, compare
-    evaluation results with other tools, import/export results (for instance,
-    when tool A does not test a given problem, but tool B does it), etc. The
-    support for a standardized language facilitates those tasks.</p>
-
-<p>Among the most usual reporting languages we could highlight the
-    following:</p>
+<p>The support for a reporting language is a requirement for some evaluation
+    tool users. The most common reporting languages used are:</p>
 <ul>
     <li>Evaluation and Report Language (<abbr>EARL</abbr>) 1.0 [<a
             href="#EARL10">EARL10</a>], a vocabulary designed to facilitate the
-        exchange of test results between Web accessibility evaluation tools in a
-        vendor-neutral and platform-independent format.
+        exchange of test results between web accessibility evaluation tools in a
+        vendor-neutral and platform-independent format, developed by
+        <abbr title="World Wide Web Consortium">W3C</abbr>.
     </li>
 
     <li>Comma-Separated Values (<abbr>CSV</abbr>) formats [<a
@@ -822,18 +820,23 @@ session tracking should be able to handle these different scenarios. <h4
 
     <li><abbr>HTML</abbr> or word processor documents.</li>
 </ul>
+
 <h4 id="database">2.3.2 Persistence of results</h4>
 
 <p>The implementation of monitoring features requires that the tool has a
     persistence layer (a database, for example) where results could be stored
     and retrieved at a later stage to compare different evaluation rounds.</p>
 
-<h4 id="import">2.3.3 Import/export functionality</h4>
+<h4 id="import">2.3.3 Importing and exporting of results</h4>
 
-<p>In many evaluation methodologies, accessibility experts and quality assurance
-    engineers use different tools. If the evaluation tool supports import and
-    export of test results (see <a href="#StdRep">Section 2.3.1</a>), the tool
-    may be easily integrated in such environments. </p>
+<p>There
+    are cases where tool users want to filter results, combine results, compare
+    evaluation results with other tools (for instance,
+    when tool A does not test a given problem, but tool B does it), etc.
+    The support for a common reporting language (see <a href="#StdRep">Section
+    2.3.1</a>) facilitates those tasks by allowing importing and exporting of
+    information. That functionality also permits the integration of the
+    evaluation tool into other development and testing environments.</p>
 
 <h4 id="customReport">2.3.4 Report customization</h4>
 
