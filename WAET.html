@@ -27,6 +27,14 @@
             font-style: italic;
         }
 
+        q:before {
+            content: open-quote;
+        }
+
+        q:after {
+            content: close-quote;
+        }
+
         ul.w3ctoc li {
             list-style: none;
         }
@@ -105,11 +113,12 @@
     <h1 id="title">Developers' Guide to Features of Web Accessibility Evaluation
         Tools</h1>
 
-    <h2 id="w3c-doctype">Editors' Draft 24 September 2014</h2>
+    <h2 id="w3c-doctype">Editors' Draft 08 October 2014</h2>
     <dl>
         <dt>This version:</dt>
 
-        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20140924/">http://www.w3.org/TR/2014/WD-WAET-20140924/</a>
+        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20141008/">http://www.w3
+            .org/TR/2014/WD-WAET-20141008/</a>
         </dd>
 
         <dt>Latest version:</dt>
@@ -148,27 +157,28 @@
             use</a> rules apply. </p></div>
 <hr/>
 
-
 <h2 id="abstract">Abstract</h2>
 
 <p>This document describes features that quality assurance and web authoring
     tools may incorporate to support the evaluation of accessibility
     requirements, such as those defined by the <a
             href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility
-        Guidelines (<abbr>WCAG</abbr>) 2.0</a>. The main purpose of this
-    document is to promote awareness on such features and to provide an
-    introductory guidance for tool developers on what kinds of features they
-    could provide in future implementations of their tools. This listing of
-    features could also be used to help compare different types of evaluation
-    tools, for example, during the procurement of such tools.</p>
+        Guidelines (<abbr>WCAG</abbr>)
+        2.0</a>. The main purpose of this document is to promote awareness on
+    such features and to provide an introductory guidance for tool developers on
+    what kinds of features they could provide in future implementations of their
+    tools. This listing of features could also be used to help compare different
+    types of evaluation tools, for example, during the procurement of such
+    tools.</p>
 
-<p>The features in scope of this document include capabilities to help specify,
+<p>The features in scope of this document include capabilities to specify,
     manage, carry out and report the results from web accessibility evaluations.
-    For example, some of the described features relate to crawling of websites,
+    For example, some of the described features relate to crawling websites,
     interacting with tool users to carry out semiautomated evaluation, or
     providing evaluation results in a machine-readable format. This document
     does not describe the evaluation of web content features, which is addressed
-    by <abbr>WCAG</abbr> 2.0 and its supporting documents.</p>
+    by <abbr title="Web Content Accessibilitz Guidelines">WCAG</abbr> 2.0 and
+    its supporting documents.</p>
 
 <p>This document encourages the incorporation of accessibility evaluation
     features in all web authoring and quality assurance tools, and the continued
@@ -269,7 +279,7 @@
                 <ul>
                     <li><a href="#resformats">2.1.1 Resource formats</a></li>
 
-                    <li><a href="#encoding">2.1.2 Content encoding and content
+                    <li><a href="#charencoding">2.1.2 Content encoding and content
                         language</a></li>
 
                     <li><a href="#fragments">2.1.3 <abbr>DOM</abbr> Document
@@ -378,15 +388,15 @@
     (<abbr>IDE</abbr>) to create templates for a content management system
     (<abbr>CMS</abbr>), while a web content author will typically use the
     content-editing facility provided by the <abbr>CMS</abbr> to create and edit
-    the web pages. Ideally all these tools provide features to support everyone
-    involved throughout the process of evaluating accessibility. For example, an
-    <abbr>IDE</abbr> could provide functionality to check document fragments so
-    that the developer can test individual web page components during their
-    development, and a <abbr>CMS</abbr> could provide functionality to customize
-    the accessibility checks that are automatically carried out to help monitor
-    the quality of the website. This document lists and describes the types of
-    features that can be provided by tools to support accessibility evaluation
-    in a variety of situations and contexts.</p>
+    the web pages. Ideally all these tools should provide features to support
+    everyone involved throughout the process of evaluating accessibility. For
+    example, an <abbr>IDE</abbr> could provide functionality to check document
+    fragments so that the developer can test individual web page components
+    during their development, and a <abbr>CMS</abbr> could provide functionality
+    to customize the accessibility checks that are automatically carried out to
+    help monitor the quality of the website. This document lists and describes
+    the types of features that can be provided by tools to support accessibility
+    evaluation in a variety of situations and contexts.</p>
 
 <h3 id="tools">1.1 Evaluation Tools</h3>
 
@@ -410,12 +420,13 @@
             Content Accessibility Guidelines (<abbr>WCAG</abbr>) 2.0</a>;
     </li>
 
-    <li id="authoringtool_def"><strong>Web authoring tool </strong> - <q
-            cite="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Any web-based
-        or non-web-based application(s) that can be used by authors (alone or
-        collaboratively) to create or modify web content for use by other people
-        (other authors or end users)</q> and which provides an evaluation
-        functionality.
+    <li id="authoringtool_def"><strong>Web authoring tool </strong> - <q>Any
+        web-based or non-web-based application(s) that can be used by authors
+        (alone or collaboratively) to create or modify web content for use by
+        other people (other authors or end users)</q> and which provides an
+        evaluation functionality (<cite><a
+                href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Authoring
+            Tool Accessibilitz Guidelines 2.0</a></cite>).
     </li>
 </ul>
 <p>Note that these terms are not mutually exclusive. A web accessibility
@@ -423,9 +434,9 @@
     cases an evaluation tool could be considered to be a web authoring tool, for
     example, if it provides repair functionality that modifies the content.
     Also, a web quality assurance tool might not check for accessibility
-    criteria but might provide other functionality, such as for managing quality
-    assurance processes and reporting evaluation results, that may be useful for
-    web accessibility evaluation. This document refers to any of these tools
+    criteria but might provide other functionality, such as managing quality
+    assurance processes and reporting evaluation results, which may be useful
+    for web accessibility evaluation. This document refers to any of these tools
     collectively as evaluation tools.</p>
 
 <p><abbr title="World Wide Web Consortium">W3C</abbr> Web Accessibility
@@ -434,27 +445,18 @@
         evaluation tools</a> that can be searched according to different
     criteria such as the features listed in this document.</p>
 
-<p><span class="highlight">[<strong>Editor Note:</strong> The list of web accessibility
-    evaluation is currently out of date. It is expected to be updated before the next
-    publication of this document.]</span></p>
-
 <h2 id="features">2 Features of an accessibility evaluation tool</h2>
-
-<p class="note">[<strong>Review Note:</strong> Feedback on this section is
-    particularly welcome, specifically with suggestions for accessibility
-    evaluation features that are not listed below and with comments to refine
-    listed accessibility evaluation features.] </p>
 
 <p>The features of an accessibility evaluation tool are presented in this
     section from different perspectives: the <strong>resource to be
         evaluated</strong> (i.e., web content and its linked resources, which
-    enable its rendering in the user agent), <strong>the testing
+    enable its rendering in the user agent), <strong>the evaluation
         requirements</strong>, the <strong>reporting customization capabilities
         of the tool</strong> and other <strong>tool usage</strong>
     characteristics like the integration into the development and editing
     workflow of the user.</p>
 
-<p>The accessibility evaluation features listed and described below is not
+<p>The list of accessibility evaluation features described below is not
     exhaustive. It may not be possible nor desired for a single tool to
     implement all of the listed features either. For example, tools that are
     specifically designed to assist designers in creating web page layouts would
@@ -499,8 +501,8 @@
         [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>] or
         <abbr>XML</abbr> documents. Processing these resources typically
         requires the ability to build a Document Object Model (<abbr>DOM</abbr>)
-        [<a href="#DOM">DOM</a>] that includes style (<abbr>CSS</abbr>)
-        and scripting (JavaScript) resources (see below), which can then be
+        [<a href="#DOM">DOM</a>] that includes styles (<abbr>CSS</abbr>),
+        scrips (JavaScript) and other media (see below), which can then be
         parsed and analyzed:
         <ul>
             <li><strong>Style formats</strong>. These are presentation
@@ -510,7 +512,7 @@
             </li>
             <li><strong>Script formats</strong>. These are components that
                 modify the content, the presentation, or the behavior of web
-                resources and web applications, be it because of user
+                resources and web applications, be it because of end-user
                 interaction or because of other functional requirements (e.g.,
                 notifications, dynamic updates, etc.). These resources play a
                 critical role in Rich Internet Applications. Ignoring these
@@ -528,14 +530,17 @@
         movies or audio tracks, which are standalone or embedded within another
         web resource. It must be highlighted that media resources may be
         presented in different ways and consist of several resources, for
-        example, a media track and its subtitles in different languages.
-        From the accessibility standpoint, the evaluation of these
-        resources is relevant to some evaluation requirements, such as
-        ensuring that there is an adequate contrast between foreground and
-        background colors in a given image. There are few tools known to test
-        automatically accessibility of media resources. This
-        opens a new area of research to analyze such resources with machine
-        learning algorithms, for instance.
+        example, a media track and its <a
+                href="http://www.w3.org/TR/WCAG20/#captionsdef">captions</a> and
+        <a href="http://www.w3.org/TR/WCAG20/#audiodescdef">audio
+            descriptions</a>. From the accessibility standpoint, the evaluation
+        of these resources is relevant to some evaluation requirements, such as
+        ensuring that there is an adequate <a
+                href="http://www.w3.org/TR/WCAG20/#contrast-ratiodef">contrast
+            ratio</a> between foreground and background colors in a given image.
+        There are few tools known to test automatically accessibility of media
+        resources. This opens a new area of research to analyze such resources
+        with machine learning algorithms, for instance.
     </li>
 
     <li><strong>Document formats</strong>. Many reports and administrative
@@ -558,22 +563,32 @@
     </li>
 </ul>
 
-<h4 id="encoding">2.1.2 Content encoding and content language</h4>
+<h4 id="charencoding">2.1.2 Character encodings</h4>
 
-<p>This feature identifies which content languages and encodings are supported
-    by the evaluation tool. Because the web is a multilingual and multicultural
-    space in which information can be presented in different languages,
-    evaluation tools should be in the position to handle them. Additionally, web
-    content can be transmitted using different character encodings and sets.
-    With HTML5 [<a href="#HTML5">HTML5</a>] there is a push to use UTF-8 as the
-    default encoding and abandon other legacy encodings. However, it is
-    recommended that evaluation tools offer support for this legacy content.</p>
+<p>This feature identifies which character encodings are supported by the
+    evaluation tool. Web content can be transmitted using different character
+    encodings and sets and the correct rendering of the web resources for the
+    evaluation depends upon their correct interpretation. With
+    <abbr>HTML5</abbr> [<a href="#HTML5">HTML5</a>] there is a push to use UTF-8
+    as the default encoding and abandon other legacy encodings. However, it is
+    recommended that evaluation tools offer support for other legacy encodings.
+</p>
 
 <p>More information about this topic can be found in the <abbr
         title="World Wide Web Consortium">W3C</abbr> Internationalization
-    Activity [<a href="#W3Ci18n">W3Ci18n</a>]. </p>
+    Activity [<a href="#W3Ci18n">W3Ci18n</a>].</p>
 
-<h4 id="fragments">2.1.3 <abbr>DOM</abbr> document fragments </h4>
+<h4 id="clanguage">2.1.3 Content language</h4>
+
+<p>Because the web is a multilingual and multicultural space in which
+    information can be presented in different languages, evaluation tools should
+    be in the position to handle them. From an accessibility standpoint, the
+    language of the content is relevant to some accessibility criteria like <a
+            href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html">readability</a>.
+    Therefore, the tool should explicitly declare for such criteria which
+    content languages they support.</p>
+
+<h4 id="fragments">2.1.4 <abbr>DOM</abbr> document fragments </h4>
 
 <p> Many websites are generated dynamically by combining code templates with
     <abbr>HTML</abbr> snippets that are created by website editors. Evaluation
@@ -588,7 +603,7 @@
     tools may filter as well the accessibility tests according to their
     relevance to the document fragment. </p>
 
-<h4 id="rias">2.1.4 Rich Internet Applications</h4>
+<h4 id="rias">2.1.5 Rich Internet Applications</h4>
 
 <p>Web and cloud applications are common on the web. These applications
     generate dynamically webpages that are the result of the interpretation of
@@ -598,7 +613,7 @@
     of the interface presented to the user.
 </p>
 
-<h4 id="cnegotiation">2.1.5 Content negotiation</h4>
+<h4 id="cnegotiation">2.1.6 Content negotiation</h4>
 
 <p> Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol
     that enables web servers to customize the representation of the requested
@@ -618,7 +633,7 @@
 
     <li>etc.</li>
 </ul>
-<h4 id="cookies">2.1.6 Cookies</h4>
+<h4 id="cookies">2.1.7 Cookies</h4>
 
 <p> A cookie is a name-value pair that it is stored by the user-agent [<a
         href="#HTTPCOOKIES">HTTPCOOKIES</a>]. Cookies contain information
@@ -631,7 +646,7 @@
     requests. It may also allow the user to manually set cookie information to
     be used with the <abbr>HTTP</abbr> requests. </p>
 
-<h4 id="authentication">2.1.7 Authentication</h4>
+<h4 id="authentication">2.1.8 Authentication</h4>
 
 <p> Websites may require authentication (e.g., <abbr>HTTP</abbr> authentication,
     OpenID, etc.) to control access to given parts of the website or to present
@@ -643,7 +658,7 @@
     request. The tool may also support the use of different credentials for
     different parts of a web site.</p>
 
-<h4 id="session">2.1.8 Session tracking</h4>
+<h4 id="session">2.1.9 Session tracking</h4>
 
 <p> Within <abbr>HTTP</abbr>, session information can be used for different
     purposes like, e.g., implementation of security mechanisms (login
@@ -651,8 +666,9 @@
     interaction paths of the users. </p> Session information can be stored in
 the user agent local storage, in the session ID in the <abbr>URL</abbr> or in a
 <a href="#cookies">cookie</a>, for example. An evaluation tool that supports
-session tracking should be able to handle these different scenarios. <h4
-        id="crawling">2.1.9 Crawling</h4>
+session tracking should be able to handle these different scenarios.
+
+<h4 id="crawling">2.1.10 Crawling</h4>
 
 <p>Some evaluation tools incorporate a web crawler [<a href="#WEBCRAWLER">WEBCRAWLER</a>]
     able to extract hyperlinks out of web resources. There are many types of
@@ -694,7 +710,7 @@ session tracking should be able to handle these different scenarios. <h4
     </li>
 </ul>
 
-<h4 id="sampling">2.1.10 Sampling</h4>
+<h4 id="sampling">2.1.11 Sampling</h4>
 
 <p>This feature refers to the capability of an evaluation tool to select a
     subset of web pages within a website according to different criteria. These
