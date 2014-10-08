@@ -71,31 +71,7 @@
             border: thin dashed;
             padding: 5px;
         }
-
-        .highlight {
-            background-color: #ffffcc;
-        }
-
-        .req {
-            color: #000;
-            padding: 5px;
-            border: 1px dotted #e63232;
-            background-color: #f4f3e7;
-        }
-
-        .offscreen {
-            position: absolute;
-            left: -999px;
-            width: 990px;
-        }
-
-        .example {
-            margin: 1em 2em 1em 2em;
-            color: #000;
-            background-color: #fff;
-            padding: 0.5em;
-            border: 1px dotted #e63232;
-        }    </style>
+    </style>
 </head>
 
 <body>
@@ -257,9 +233,13 @@
                 href="http://www.w3.org/Consortium/Patent-Policy-20040205/#def-essential">Essential
             Claim(s)</a> must disclose the information in accordance with <a
                 href="http://www.w3.org/Consortium/Patent-Policy-20040205/#sec-Disclosure">section
-            6 of the <abbr>W3C</abbr> Patent Policy</a>.</p></div>
+            6 of the <abbr>W3C</abbr> Patent Policy</a>.</p>
+</div>
+
 <hr/>
+
 <h2 id="contents">Table of Contents</h2>
+
 <ul class="w3ctoc">
     <li><a href="#abstract">Abstract</a></li>
 
@@ -279,26 +259,28 @@
                 <ul>
                     <li><a href="#resformats">2.1.1 Resource formats</a></li>
 
-                    <li><a href="#charencoding">2.1.2 Content encoding and content
-                        language</a></li>
+                    <li><a href="#charencoding">2.1.2 Character encodings</a></li>
 
-                    <li><a href="#fragments">2.1.3 <abbr>DOM</abbr> Document
+                    <li><a href="#clanguage">2.1.3 Content language</a></li>
+
+                    <li><a href="#fragments">2.1.4 <abbr>DOM</abbr> Document
                         fragments</a></li>
 
-                    <li><a href="#renderedDOM">2.1.4 Rich Internet Applications</a></li>
+                    <li><a href="#renderedDOM">2.1.5 Static code evaluation vs.
+                        rendered DOM evaluation</a></li>
 
-                    <li><a href="#cnegotiation">2.1.5 Content negotiation</a>
+                    <li><a href="#cnegotiation">2.1.6 Content negotiation</a>
                     </li>
 
-                    <li><a href="#cookies">2.1.6 Cookies</a></li>
+                    <li><a href="#cookies">2.1.7 Cookies</a></li>
 
-                    <li><a href="#authentication">2.1.7 Authentication</a></li>
+                    <li><a href="#authentication">2.1.8 Authentication</a></li>
 
-                    <li><a href="#session">2.1.8 Session tracking </a></li>
+                    <li><a href="#session">2.1.9 Session tracking </a></li>
 
-                    <li><a href="#crawling">2.1.9 Crawling</a></li>
+                    <li><a href="#crawling">2.1.10 Crawling</a></li>
 
-                    <li><a href="#sampling">2.1.10 Sampling</a></li>
+                    <li><a href="#sampling">2.1.11 Sampling</a></li>
                 </ul>
             </li>
 
@@ -314,12 +296,15 @@
 
                     <li><a href="#webdriver">2.2.4 User interaction and test
                         automation</a></li>
+
+                    <li><a href="#emulation">2.2.5 Emulating how people with
+                        disabilities experience the web</a></li>
                 </ul>
             </li>
 
             <li><a href="#reporting">2.3 Reporting and monitoring </a>
                 <ul>
-                    <li><a href="#StdRep">2.3.1 Reporting languages</a></li>
+                    <li><a href="#stdRep">2.3.1 Reporting languages</a></li>
 
                     <li><a href="#database">2.3.2 Persistence of results</a>
                     </li>
@@ -852,10 +837,14 @@
     user indicating different types of errors/warnings, a HTML document or a
     word processor document summarizing the evaluation results, etc.</p>
 
-<h4 id="StdRep">2.3.1 Reporting languages</h4>
+<h4 id="stdRep">2.3.1 Machine-readable reporting formats</h4>
 
-<p>The support for a reporting language is a requirement for some evaluation
-    tool users. The most common reporting languages used are:</p>
+<p>These are formats normally not adequate for human consumption. They are used
+    for storage purposes in a database (see <a href="#database"
+        class="termref">section 2.3.3</a>) or exported so that other evaluation
+    tools can parse and interpret its results. The most common reporting
+    languages used are:</p>
+
 <ul>
     <li>Evaluation and Report Language (<abbr>EARL</abbr>) 1.0 [<a
             href="#EARL10">EARL10</a>], a vocabulary designed to facilitate the
@@ -869,28 +858,34 @@
     </li>
 
     <li><abbr>JSON</abbr> [<a href="#JSON">JSON</a>].</li>
-
-    <li><abbr>HTML</abbr> or word processor documents.</li>
 </ul>
 
-<h4 id="database">2.3.2 Persistence of results</h4>
+<h4 id="humanRep">2.3.2 Human-readable reports</h4>
+
+<p>These are reports targeted to the tool users. They may be <abbr>HTML</abbr>
+    or word processor documents with the test results (with tables, graphics,
+    etc.) to be read out of the tool context, or they may be a set of
+    application windows, which guide the tool user through the different
+    evaluation results, presenting aggregated views when necessary (see
+    <a href="#aggregation" class="termref">section 2.3.6</a>).</p>
+
+<h4 id="database">2.3.3 Persistence of results</h4>
 
 <p>The implementation of monitoring features requires that the tool has a
     persistence layer (a database, for example) where results could be stored
     and retrieved at a later stage to compare different evaluation rounds.</p>
 
-<h4 id="import">2.3.3 Importing and exporting of results</h4>
+<h4 id="import">2.3.4 Importing results</h4>
 
-<p>There
-    are cases where tool users want to filter results, combine results, compare
-    evaluation results with other tools (for instance,
-    when tool A does not test a given problem, but tool B does it), etc.
-    The support for a common reporting language (see <a href="#StdRep">Section
-    2.3.1</a>) facilitates those tasks by allowing importing and exporting of
-    information. That functionality also permits the integration of the
-    evaluation tool into other development and testing environments.</p>
+<p>There are cases where tool users want to filter results, combine results,
+    compare evaluation results with other tools (for instance, when tool A does
+    not test a given problem, but tool B does it), etc. The support for a common
+    reporting language (see <a href="#stdRep" class="termref">section 2.3.1</a>)
+    facilitates those tasks by allowing importing of information.
+    That functionality also permits the integration of the evaluation tool into
+    other development and testing environments.</p>
 
-<h4 id="customReport">2.3.4 Report customization</h4>
+<h4 id="customReport">2.3.5 Report customization</h4>
 
 <p>This feature allows the customization of the resulting report according to
     different criteria, such as the target audience, the type of results, the
@@ -898,7 +893,7 @@
     also allow the developer or the accessibility expert to add additional
     comments in the report.</p>
 
-<h4 id="aggregation">2.3.5 Results aggregation</h4>
+<h4 id="aggregation">2.3.6 Results aggregation</h4>
 
 <p>The presentation of evaluation results and their aggregation is influenced
     by different aspects:</p>
@@ -922,29 +917,33 @@
     common failures, sufficient techniques, etc.) and aggregate results as
     described in the previous section.</p>
 
-<p> As described in <a href="#manual">Section 2.2.2</a>, full accessibility
-    compliance can only be achieved when manual testing and/or semiautomated
-    checking have been implemented. </p>
+<p> As described in <a href="#manual" class="termref">section 2.2.2</a>, full
+    accessibility compliance can only be achieved when manual testing and/or
+    semiautomated checking have been implemented. </p>
 
 <h4 id="repair">2.3.7 Error repair guidance</h4>
 
 <p>The majority of web developers have little or no knowledge about web
     accessibility. Together with their reporting capabilities, tools may provide
-    additional information to support correction of the accessibility problems
-    detected. This information may include examples, tutorials, screencasts,
-    pointers to online resources, links to the <abbr
+    additional information to support the correction of the accessibility
+    problems detected. This information may include examples, tutorials,
+    screencasts, pointers to online resources, links to the <abbr
             title="World Wide Web Consortium">W3C</abbr> recommendations, etc.
-    If the evaluation tool is part of an <a
-            href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">authoring
-        tool</a> as described in the Authoring Tool Accessibility Guidelines 2.0
-    [<a href="#ATAG20">ATAG20</a>], then it can support the authoring tool to
-    meet <a href="http://www.w3.org/TR/ATAG20/#sc_b321">success criterion
-        B.3.2.1</a>. </p>
-
-<p>This feature may include, for example, a guided step-by-step wizard which
-    guides the evaluator to correct the problems found. Automatic repair of
+    This feature may include, for example, a guided step-by-step wizard which
+    guides the evaluator to correct the problems found (some user interface
+    mockups can be found in the document <cite><a
+    href="http://www.w3.org/TR/2013/WD-IMPLEMENTING-ATAG20-20131107/#checking-types">Implementing
+        ATAG 2.0, A guide to understanding and implementing Authoring Tool
+        Accessibility Guidelines 2.0</a></cite>). Automatic repair of
     accessibility problems is discouraged, as it may originate non-desirable
     side-effects.</p>
+
+<p>If the evaluation tool is part of an <a
+        href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">authoring
+    tool</a> as described in the Authoring Tool Accessibility Guidelines 2.0 [<a
+        href="#ATAG20">ATAG20</a>], then it can support the authoring tool to
+    meet <a href="http://www.w3.org/TR/ATAG20/#sc_b321">success criterion
+    B.3.2.1</a>.</p>
 
 <h3 id="toolUsage">2.4 Tool usage</h3>
 
