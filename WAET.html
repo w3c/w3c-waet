@@ -39,13 +39,22 @@
             list-style: none;
         }
 
-        a.termref:link, a.termref:visited {
-            color: #000000;
+        a.termref {
+            text-decoration: none;
+            color: #00f;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: dashed #808080 1px;
+            background-color: transparent;
+        }
+
+        a.termref:visited {
+            color: magenta;
             background: inherit;
         }
 
         a.termref:hover, .termref:active, a.termref:focus {
-            color: #0000CC;
+            color: #00c;
             background: inherit;
         }
 
@@ -72,15 +81,6 @@
             padding: 5px;
             border: 1px dotted #e63232;
             background-color: #f4f3e7;
-        }
-
-        .termref {
-            text-decoration: none;
-            color: #000000;
-            padding-bottom: 0;
-            margin-bottom: 0;
-            border-bottom: dashed #808080 1px;
-            background-color: transparent;
         }
 
         .offscreen {
@@ -285,7 +285,7 @@
                     <li><a href="#fragments">2.1.3 <abbr>DOM</abbr> Document
                         fragments</a></li>
 
-                    <li><a href="#rias">2.1.4 Rich Internet Applications</a></li>
+                    <li><a href="#renderedDOM">2.1.4 Rich Internet Applications</a></li>
 
                     <li><a href="#cnegotiation">2.1.5 Content negotiation</a>
                     </li>
@@ -590,39 +590,57 @@
 
 <h4 id="fragments">2.1.4 <abbr>DOM</abbr> document fragments </h4>
 
-<p> Many websites are generated dynamically by combining code templates with
+<p>Many websites are generated dynamically by combining code templates with
     <abbr>HTML</abbr> snippets that are created by website editors. Evaluation
     tools may be integrated into Content Management Systems (<abbr>CMS</abbr>)
     and Integrated Development Environments (<abbr>IDE</abbr>) to test these
-    snippets as developers and/or editors create them. </p>
+    snippets as developers and/or editors create them.</p>
 
-<p> Usually this is implemented in the evaluation tools by creating
+<p>Usually this is implemented in the evaluation tools by creating
     <abbr>DOM</abbr> <a
     href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-B63ED1A3">document
     fragments</a> [<a href="#DOM">DOM</a>] from these snippets. Evaluation
     tools may filter as well the accessibility tests according to their
-    relevance to the document fragment. </p>
+    relevance to the document fragment.</p>
 
-<h4 id="rias">2.1.5 Rich Internet Applications</h4>
+<p>In this case, it is also frequent that these resources are not transmitted
+    via HTTP. For such cases, it is recommended to include the considerations of
+    <a href="#renderedDOM" class="termref">section 2.1.5</a>.</p>
 
-<p>Web and cloud applications are common on the web. These applications
-    generate dynamically webpages that are the result of the interpretation of
-    different style and script resources as mentioned in
-    <a href="#resformats">section 2.1.1</a>. Tools that only
-    evaluate the static HTML code will miss the complexity
-    of the interface presented to the user.
-</p>
+<h4 id="renderedDOM">2.1.5 Static code evaluation vs. rendered DOM
+    evaluation</h4>
+
+<p>As mentioned earlier (see <a href="#resformats" class="termref">section
+    2.1.1</a>), from the accessibility standpoint it is very important to
+    consider not only the static <abbr>HTML</abbr> source code of a web page,
+    but how the web page is rendered with its associated resources (i.e., media,
+    scripts, styles) and presented to the end user. Therefore, it is recommended
+    that the evaluation process occurs on the rendered <abbr>DOM</abbr>,
+    otherwise the tool will miss the complexity of the interface presented to
+    the end-user. This is especially relevant for web and cloud applications,
+    which are very common on the web. </p>
+
+<p>The rendering process should not be underestimated and most of times requires
+    the integration of the evaluation tool with a <a
+            href="http://en.wikipedia.org/wiki/Web_browser_engine">web browser
+        engine</a>. This integration can be achieved in different ways (see <a
+            href="#platform" class="termref">section 2.4.6</a>).</p>
 
 <h4 id="cnegotiation">2.1.6 Content negotiation</h4>
 
-<p> Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol
+<p>Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol
     that enables web servers to customize the representation of the requested
     resources according to the demands of the client user agent. Because of
     this, the identification of resources on the web by a Uniform Resource
-    Identifier (<abbr>URI</abbr>) alone may not be sufficient. To support
-    content negotiation, the testing tool customizes and stores the
-    <abbr>HTTP</abbr> headers according to different criteria (see discussion in
-</p>
+    Identifier (<abbr>URI</abbr>) alone may not be sufficient. From the
+    accessibility perspective, this implies that a resource may present
+    accessibility problems, whilst another one under the same <abbr>URI</abbr>
+    may be fully accessible (for instance, when the page is requested in
+    another language).</p>
+
+<p>To support content negotiation, the testing tool customizes and stores the
+    <abbr>HTTP</abbr> headers according to different criteria:</p>
+
 <ul>
     <li>to fetch a particular variant of the content, such as a mobile website;
     </li>
@@ -633,40 +651,46 @@
 
     <li>etc.</li>
 </ul>
+
+<p>Content negotiation is supported by other elements described in the following
+    like <a href="#cookies" class="termref">cookies</a>, <a
+            href="#authentication" class="termref">authentication</a> and <a
+            href="#session" class="termref">session information</a>.</p>
+
 <h4 id="cookies">2.1.7 Cookies</h4>
 
 <p> A cookie is a name-value pair that it is stored by the user-agent [<a
         href="#HTTPCOOKIES">HTTPCOOKIES</a>]. Cookies contain information
-    relevant to the website that is being rendered and often include
-    authentication and session information exchanged between the client and the
-    server, which as seen before may be relevant for content negotiation. </p>
-
-<p> A tool that supports cookies may store the cookie information provided by
-    the server in an <abbr>HTTP</abbr> response and reuse it in subsequent
-    requests. It may also allow the user to manually set cookie information to
-    be used with the <abbr>HTTP</abbr> requests. </p>
+    relevant to the website that is being rendered and often include <a
+            href="#authentication" class="termref">authentication</a> and <a
+            href="#session" class="termref">session information</a> exchanged
+    between the client and the server, which as seen before may be relevant for
+    content negotiation. A tool that supports cookies may store the cookie
+    information provided by the server in an <abbr>HTTP</abbr> response and
+    reuse it in subsequent requests. It may also allow the user to manually set
+    cookie information to be used with the <abbr>HTTP</abbr> requests. </p>
 
 <h4 id="authentication">2.1.8 Authentication</h4>
 
-<p> Websites may require authentication (e.g., <abbr>HTTP</abbr> authentication,
+<p>Websites may require authentication (e.g., <abbr>HTTP</abbr> authentication,
     OpenID, etc.) to control access to given parts of the website or to present
-    customized content to authenticated users. </p>
-
-<p>A tool that supports authentication allows the user to provide their
-    credentials beforehand, so that they are used when accessing protected
-    resources, or it prompts the user to enter her credentials upon the server
-    request. The tool may also support the use of different credentials for
-    different parts of a web site.</p>
+    customized content to authenticated users. A tool that supports
+    authentication allows the user to provide their credentials beforehand, so
+    that they are used when accessing protected resources, or it prompts the
+    user to enter her credentials upon the server request. The tool may also
+    support the use of different credentials for different parts of a web site.
+</p>
 
 <h4 id="session">2.1.9 Session tracking</h4>
 
-<p> Within <abbr>HTTP</abbr>, session information can be used for different
+<p>Within <abbr>HTTP</abbr>, session information can be used for different
     purposes like, e.g., implementation of security mechanisms (login
-    information, logout a user after a long inactivity period) or track the
-    interaction paths of the users. </p> Session information can be stored in
-the user agent local storage, in the session ID in the <abbr>URL</abbr> or in a
-<a href="#cookies">cookie</a>, for example. An evaluation tool that supports
-session tracking should be able to handle these different scenarios.
+    information, to logout a user after a long inactivity period) or track the
+    interaction paths of the users. Session information can be stored in the
+    user agent local storage, in a session ID in the <abbr>URL</abbr> or in a
+    <a href="#cookies" class="termref">cookie</a>, for example. An evaluation
+    tool that supports session tracking should be able to handle these different
+    scenarios.</p>
 
 <h4 id="crawling">2.1.10 Crawling</h4>
 
@@ -679,8 +703,8 @@ session tracking should be able to handle these different scenarios.
 <p>A web crawler defines an starting point and a set of options. The most common
     features of a web crawler (configuration capabilities) are:</p>
 <ul>
-    <li>Types of content-types crawled (see <a href="#resformats">section
-        2.1.1</a>).
+    <li>Types of resource formats crawled (see <a href="#resformats"
+            class="termref">section 2.1.1</a>).
     </li>
 
     <li>Capability to define inclusion and exclusion filters. Tool users may
@@ -703,10 +727,11 @@ session tracking should be able to handle these different scenarios.
     </li>
 
     <li>Capabilities related to features described in previous sections such as
-        the extraction of links from <a href="#rias">dynamically generated
-            content</a>, <a href="#cnegotiation">content negotiation</a>, <a
-                href="#authentication">authentication support</a> or <a
-                href="#session">session tracking</a>.
+        the extraction of links from <a href="#renderedDOM" class="termref">dynamically
+            generated content</a>, <a href="#cnegotiation" class="termref">content
+            negotiation</a>, <a href="#authentication" class="termref">authentication
+            support</a> or <a href="#session" class="termref">session
+            tracking</a>.
     </li>
 </ul>
 
@@ -733,8 +758,9 @@ session tracking should be able to handle these different scenarios.
 <p>Accessibility evaluation tools may offer the possibility to select a given
     subset of evaluation tests or even a single one. A typical example could be
     performing tests to the different conformance levels (A, AA or AAA) of the
-    Web Content Accessibility Guidelines 2.0 or selecting individual tests for a
-    single technique or common failure.</p>
+    <a href="http://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines
+        2.0</a> or selecting individual tests for a single technique or common
+    failure.</p>
 
 <p>This feature shall not be confused with the fact that some tools are focused
     on testing a single characteristic of the web page, like for example, a tool
@@ -743,34 +769,34 @@ session tracking should be able to handle these different scenarios.
 <h4 id="manual">2.2.2 Test modes</h4>
 
 <p>Accessibility evaluation tools carry out testing in different modes:</p>
-<ul>
-    <li>Automatic - where the test was carried out automatically by the software
-        tool without any human intervention. For example, the tool could detect
-        the absence of a <code>lang</code> attribute in a <code>html</code>
-        element.
-    </li>
 
-    <li>Manual - where the test was carried out by human evaluators. This
-        includes the case where the evaluators are aided by instructions or
-        guidance provided by software tools, but where the evaluators carried
-        out the actual test procedure. For example, the tool may be unable of
-        detecting natural language changes and informs the user to perform that
-        test in the page.
-    </li>
+<dl>
+    <dt>Automatic</dt>
+    <dd>where the test was carried out automatically by the software tool
+        without any human intervention. For example, the tool could detect the
+        absence of a <code>lang</code> attribute in a <code>html</code> element.
+    </dd>
+    <dt>Manual</dt>
+    <dd>where the test was carried out by human evaluators. This includes the
+        case where the evaluators are aided by instructions or guidance provided
+        by software tools, but where the evaluators carried out the actual test
+        procedure. For example, the tool may be unable of detecting natural
+        language changes and informs the user to perform that test in the page.
+    </dd>
+    <dt>Semiautomatic</dt>
+    <dd>where the test was partially carried out by software tools, but human
+        input or judgment was still required to decide or help decide the
+        outcome of the test. For example, the tool could detect an alternative
+        text (<code>alt</code> attribute) for an image (<code>img</code>
+        element), but it cannot judge the adequacy of the text to describe the
+        image.
+    </dd>
+</dl>
 
-    <li>Semiautomatic - where the test was partially carried out by software
-        tools, but human input or judgment was still required to decide or help
-        decide the outcome of the test. For example, the tool could detect an
-        alternative text (<code>alt</code> attribute) for an image
-        (<code>img</code> element), but it cannot judge the adequacy of the text
-        to describe the image.
-    </li>
-</ul>
-
-<p>(See: <a href="http://www.w3.org/TR/EARL10-Schema/#TestMode">Evaluation and
-    Report Language 1.0</a> [<a href="#EARL10">EARL10</a>] and <a
+<p>(See: <cite><a href="http://www.w3.org/TR/EARL10-Schema/#TestMode">Evaluation
+    and Report Language 1.0</a></cite> [<a href="#EARL10">EARL10</a>] and <cite><a
         href="http://www.w3.org/TR/ATAG20/#def-Checking">Authoring Tool
-    Accessibility Guidelines 2.0</a> [<a href="#ATAG20">ATAG20</a>].)</p>
+    Accessibility Guidelines 2.0</a></cite> [<a href="#ATAG20">ATAG20</a>].)</p>
 
 <p>Support for automatic testing varies significantly between tools.
     Evaluation tools may support their users when performing semiautomatic or
@@ -795,16 +821,26 @@ session tracking should be able to handle these different scenarios.
 
 <h4 id="webdriver">2.2.4 User interaction and test automation</h4>
 
-<p> When evaluating accessibility of web sites and applications, it is some
+<p>When evaluating accessibility of web sites and applications, it is some
     times convenient to create scripts, which emulate user interaction (e.g.,
     activating interface components by clicking with the mouse, swiping with
     the fingers on a touch-screen or using the keyboard) that modify the
     status of the current page or load new resources.</p>
 
-<p> There are tools that enable developers to write scripts that automate the
+<p>There are tools that enable developers to write scripts that automate the
     emulation of application's and the end-users' behavior. There is an effort
     to standardize a common API for such tools. One of these APIs is the W3C
     WebDriver <abbr>API</abbr> [<a href="#_WebDriver">WebDriver</a>].</p>
+
+<h4 id="emulation">2.2.5 Emulating how people with disabilities experience the
+    web</h4>
+
+<p>More than a testing feature, this is an awareness raising component of some
+    tools for its users, to emulate how people with different disabilities
+    experience the web. For instance, the tool could linearize the web page to
+    recreate how a screen reader could present the page content, or the tool
+    could modify the page and its components' colors to emulate some color
+    deficiencies.</p>
 
 <h3 id="reporting">2.3 Reporting and monitoring</h3>
 
