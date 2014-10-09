@@ -93,8 +93,7 @@
     <dl>
         <dt>This version:</dt>
 
-        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20141009/">http://www.w3
-            .org/TR/2014/WD-WAET-20141009/</a>
+        <dd><a href="http://www.w3.org/TR/2014/WD-WAET-20141009/">http://www.w3.org/TR/2014/WD-WAET-20141009/</a>
         </dd>
 
         <dt>Latest version:</dt>
@@ -153,7 +152,7 @@
     interacting with tool users to carry out semiautomated evaluation, or
     providing evaluation results in a machine-readable format. This document
     does not describe the evaluation of web content features, which is addressed
-    by <abbr title="Web Content Accessibilitz Guidelines">WCAG</abbr> 2.0 and
+    by <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.0 and
     its supporting documents.</p>
 
 <p>This document encourages the incorporation of accessibility evaluation
@@ -316,7 +315,7 @@
                     <li><a href="#database">2.3.3 Persistence of results</a>
                     </li>
 
-                    <li><a href="#import">2.3.4 Importing of results</a>
+                    <li><a href="#import">2.3.4 Importing evaluation results</a>
                     </li>
 
                     <li><a href="#customReport">2.3.5 Report customization</a>
@@ -418,7 +417,7 @@
         other people (other authors or end users)</q> and which provides an
         evaluation functionality (<cite><a
                 href="http://www.w3.org/TR/ATAG20/#def-Authoring-Tool">Authoring
-            Tool Accessibilitz Guidelines 2.0</a></cite>).
+            Tool Accessibility Guidelines 2.0</a></cite>).
     </li>
 </ul>
 <p>Note that these terms are not mutually exclusive. A web accessibility
@@ -488,14 +487,17 @@
     they support.</p>
 
 <p>The most common resource formats include:</p>
+
 <ul>
     <li><strong>Markup formats</strong>. These are normally <abbr>HTML</abbr>
         [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>] or
         <abbr>XML</abbr> documents. Processing these resources typically
-        requires the ability to build a Document Object Model (<abbr>DOM</abbr>)
-        [<a href="#DOM">DOM</a>] that includes styles (<abbr>CSS</abbr>),
-        scrips (JavaScript) and other media (see below), which can then be
-        parsed and analyzed:
+        requires the ability to ability to render their content according to
+        the Document Object (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>],
+        including all associated resources, such as styles (<abbr>CSS</abbr>),
+        scripts (JavaScript), media and others. Note that the particular version
+        ("Level") of the <abbr>DOM</abbr> has significant impact on the
+        rendering, and is relevant to consider it as part of this feature.
         <ul>
             <li><strong>Style formats</strong>. These are presentation
                 modifiers, which conform to the different <abbr>CSS</abbr>
@@ -526,7 +528,7 @@
                 href="http://www.w3.org/TR/WCAG20/#captionsdef">captions</a> and
         <a href="http://www.w3.org/TR/WCAG20/#audiodescdef">audio
             descriptions</a>. From the accessibility standpoint, the evaluation
-        of these resources is relevant to some evaluation requirements, such as
+        of media resources is relevant to some evaluation requirements, such as
         ensuring that there is an adequate <a
                 href="http://www.w3.org/TR/WCAG20/#contrast-ratiodef">contrast
             ratio</a> between foreground and background colors in a given image.
@@ -590,7 +592,7 @@
 
 <p>Usually this is implemented in the evaluation tools by creating
     <abbr>DOM</abbr> <a
-    href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-B63ED1A3">document
+    href="http://www.w3.org/TR/dom/#interface-documentfragment">document
     fragments</a> [<a href="#DOM">DOM</a>] from these snippets. Evaluation
     tools may filter as well the accessibility tests according to their
     relevance to the document fragment.</p>
@@ -897,7 +899,7 @@
     persistence layer (a database, for example) where results could be stored
     and retrieved at a later stage to compare different evaluation rounds.</p>
 
-<h4 id="import">2.3.4 Importing results</h4>
+<h4 id="import">2.3.4 Importing evaluation results</h4>
 
 <p>There are cases where tool users want to filter results, combine results,
     compare evaluation results with other tools (for instance, when tool A does
@@ -1114,7 +1116,9 @@
     </li>
 
     <li>The tool allows the export of the evaluation results as an
-        <abbr>EARL</abbr> report or as a <abbr>CSV</abbr> file.
+        <abbr>EARL</abbr> report
+        (serialized as <abbr>JSON</abbr>-<abbr>LD</abbr>)
+        or as a <abbr>CSV</abbr> file.
     </li>
 </ul>
 <p><a href="#tab1">Table 1</a> presents an overview of the matching features as
@@ -1175,8 +1179,9 @@
 <ul>
     <li>The tool can emulate different user agents running on given mobile
         operating systems. Like tool A, it relies on the capabilities of the
-        browser to support cookies, authentication and content negotiation, but
-        it does not offer configuration capabilities for these items.
+        web rendering engine to support cookies, authentication and content
+        negotiation, but it does not offer configuration capabilities for
+        these items.
     </li>
 
     <li>It shows typical display sizes corresponding to predefined smartphones
@@ -1200,6 +1205,7 @@
 <p>This section presents a tabular comparison the tool features described
     previously. <strong>They are provided for illustration purposes and do not
         represent an existing product.</strong></p>
+
 <table id="tab1">
 <caption>Table 1. List of features for the example tools described in section 3.
 </caption>
@@ -1231,18 +1237,17 @@
 <tr>
     <td><a href="#charencoding" class="termref">Character encodings</a></td>
 
-    <td>ISO-8859-1, UTF-8, UTF-16; any language supported by these encodings
-    </td>
+    <td>ISO-8859-1, UTF-8, UTF-16</td>
 
-    <td>ISO-8859-1, UTF-8; any language supported by these encodings</td>
+    <td>ISO-8859-1, UTF-8</td>
 
-    <td>ISO-8859-1, UTF-8; any language supported by these encodings</td>
+    <td>ISO-8859-1, UTF-8</td>
 </tr>
 <tr>
     <td><a href="#clanguage" class="termref">Content language</a></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>any language supported by these encodings: ISO-8859-1, UTF-8, UTF-16</td>
+    <td>any language supported by these encodings: ISO-8859-1, UTF-8</td>
+    <td>any language supported by these encodings: ISO-8859-1, UTF-8</td>
 </tr>
 <tr>
     <td><a href="#fragments" class="termref">DOM Document fragments</a></td>
@@ -1255,14 +1260,14 @@
 </tr>
 
 <tr>
-    <td><a href="#renderedDOM" class="termref">Static code evaluation vs. rendered
-        DOM evaluation</a></td>
+    <td><a href="#renderedDOM" class="termref">Static code evaluation vs.
+        rendered <abbr>DOM</abbr> evaluation</a></td>
 
-    <td>relies on browser capabilities</td>
+    <td>rendered <abbr>DOM</abbr> (relies on browser capabilities)</td>
 
-    <td>yes</td>
+    <td>rendered <abbr>DOM</abbr> (rendering engine)</td>
 
-    <td>relies on browser capabilities</td>
+    <td>rendered <abbr>DOM</abbr> (rendering engine)</td>
 </tr>
 
 <tr>
@@ -1270,7 +1275,7 @@
 
     <td>relies on browser capabilities; not configurable</td>
 
-    <td>yes</td>
+    <td>full support; configurable</td>
 
     <td>relies on browser capabilities; not configurable</td>
 </tr>
@@ -1280,7 +1285,7 @@
 
     <td>relies on browser capabilities; not configurable</td>
 
-    <td>configurable</td>
+    <td>full support; configurable</td>
 
     <td>relies on browser capabilities; not configurable</td>
 </tr>
@@ -1290,7 +1295,7 @@
 
     <td>relies on browser capabilities; not configurable</td>
 
-    <td>configurable</td>
+    <td>full support; configurable</td>
 
     <td>relies on browser capabilities; not configurable</td>
 </tr>
@@ -1300,7 +1305,7 @@
 
     <td>relies on browser capabilities; not configurable</td>
 
-    <td>configurable</td>
+    <td>full support; configurable</td>
 
     <td>relies on browser capabilities; not configurable</td>
 </tr>
@@ -1316,19 +1321,7 @@
 </tr>
 
 <tr>
-    <td><a href="#crawling" class="termref">Sampling</a></td>
-
-    <td></td>
-
-    <td></td>
-
-    <td></td>
-</tr>
-
-<tr>
-    <th rowspan="4"><a href="#testcustom" class="termref">Testing functionality</a></th>
-
-    <td>Selection of evaluation tests</td>
+    <td><a href="#sampling" class="termref">Sampling</a></td>
 
     <td>no</td>
 
@@ -1338,7 +1331,20 @@
 </tr>
 
 <tr>
-    <td>Test modes: automatic, semiautomatic and manual</td>
+    <th rowspan="6"><a href="#testcustom" class="termref">Testing
+        functionality</a></th>
+
+    <td><a href="#filterTests" class="termref">Selection of evaluation tests</a></td>
+
+    <td>no</td>
+
+    <td>yes</td>
+
+    <td>no</td>
+</tr>
+
+<tr>
+    <td><a href="#manual" class="termref">Test modes</a></td>
 
     <td>only automatic</td>
 
@@ -1348,7 +1354,18 @@
 </tr>
 
 <tr>
-    <td>Development of own tests and test extensions</td>
+    <td><a href="#accReqs" class="termref">Documenting implementation of accessibility requirements</a></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+</tr>
+
+<tr>
+    <td><a href="#ownTests" class="termref">Development of own tests and test
+        extensions</a></td>
 
     <td>no</td>
 
@@ -1358,7 +1375,7 @@
 </tr>
 
 <tr>
-    <td>Test automation</td>
+    <td><a href="#webdriver" class="termref">Test automation</a></td>
 
     <td>no</td>
 
@@ -1368,9 +1385,20 @@
 </tr>
 
 <tr>
-    <th rowspan="7"><a href="#reporting" class="termref">Reporting and monitoring</a></th>
+    <td><a href="#emulation" class="termref">Emulating how people with disabilities experience the web</a></td>
 
-    <td>Standard reporting languages</td>
+    <td>no</td>
+
+    <td>no</td>
+
+    <td>yes</td>
+</tr>
+
+<tr>
+    <th rowspan="8"><a href="#reporting" class="termref">Reporting and
+        monitoring</a></th>
+
+    <td><a href="#stdRep" class="termref">Machine-readable reporting formats</a></td>
 
     <td><abbr>EARL</abbr></td>
 
@@ -1380,7 +1408,17 @@
 </tr>
 
 <tr>
-    <td>Persistence of results</td>
+    <td><a href="#humanRep" class="termref">Human-readable reports</a></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+</tr>
+
+<tr>
+    <td><a href="#database" class="termref">Persistence of results</a></td>
 
     <td>no</td>
 
@@ -1390,7 +1428,7 @@
 </tr>
 
 <tr>
-    <td>Import/export functionality</td>
+    <td><a href="#import" class="termref">Importing evaluation results</a></td>
 
     <td><abbr>EARL</abbr></td>
 
@@ -1400,7 +1438,7 @@
 </tr>
 
 <tr>
-    <td>Report customization</td>
+    <td><a href="#customReport" class="termref">Report customization</a></td>
 
     <td>no</td>
 
@@ -1410,7 +1448,7 @@
 </tr>
 
 <tr>
-    <td>Results aggregation</td>
+    <td><a href="#aggregation" class="termref">Results aggregation</a></td>
 
     <td>no</td>
 
@@ -1420,7 +1458,7 @@
 </tr>
 
 <tr>
-    <td>Conformance</td>
+    <td><a href="#conformance" class="termref">Conformance</a></td>
 
     <td>no</td>
 
@@ -1430,7 +1468,7 @@
 </tr>
 
 <tr>
-    <td>Error repair</td>
+    <td><a href="#repair" class="termref">Error repair guidance</a></td>
 
     <td>inline hints</td>
 
@@ -1440,19 +1478,20 @@
 </tr>
 
 <tr>
-    <th rowspan="5"><a href="#toolUsage" class="termref">Tool usage</a></th>
+    <th rowspan="6"><a href="#toolUsage" class="termref">Tool usage</a></th>
 
-    <td>Workflow integration</td>
+    <td><a href="#workflow" class="termref">Workflow integration</a></td>
 
-    <td>in browser</td>
+    <td></td>
 
-    <td>standalone</td>
+    <td></td>
 
-    <td>standalone</td>
+    <td></td>
 </tr>
 
 <tr>
-    <td>Localization and internationalization</td>
+    <td><a href="#localization" class="termref">Localization and
+        internationalization</a></td>
 
     <td>en</td>
 
@@ -1462,7 +1501,8 @@
 </tr>
 
 <tr>
-    <td>Functionality customization to different audiences</td>
+    <td><a href="#customAudience" class="termref">Functionality customization
+        to different audiences</a></td>
 
     <td>developers</td>
 
@@ -1472,7 +1512,7 @@
 </tr>
 
 <tr>
-    <td>Policy environments</td>
+    <td><a href="#policy" class="termref">Policy environments</a></td>
 
     <td>no</td>
 
@@ -1482,7 +1522,7 @@
 </tr>
 
 <tr>
-    <td>Tool accessibility</td>
+    <td><a href="#toolAccess" class="termref">Tool accessibility</a></td>
 
     <td>not accessible</td>
 
@@ -1490,8 +1530,20 @@
 
     <td>not accessible</td>
 </tr>
+
+<tr>
+    <td><a href="#platform" class="termref">Platform</a></td>
+
+    <td></td>
+
+    <td></td>
+
+    <td></td>
+</tr>
 </table>
+
 <h2 id="references">4 References</h2>
+
 <dl>
     <dt id="ATAG20">ATAG20</dt>
 
