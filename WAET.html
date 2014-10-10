@@ -490,8 +490,10 @@
 
 <ul>
     <li><strong>Markup formats</strong>. These are normally <abbr>HTML</abbr>
-        [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>] or
-        <abbr>XML</abbr> documents. Processing these resources typically
+        [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>],
+        <abbr>XHTML</abbr> [<a href="#XHTML10">XHTML10</a>] or <abbr>XML</abbr>
+        [<a href="#XML10">XML10</a>, <a href="#XML11">XML11</a>]
+        documents. Processing these resources typically
         requires the ability to ability to render their content according to
         the Document Object (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>],
         including all associated resources, such as styles (<abbr>CSS</abbr>),
@@ -590,12 +592,11 @@
     and Integrated Development Environments (<abbr>IDE</abbr>) to test these
     snippets as developers and/or editors create them.</p>
 
-<p>Usually this is implemented in the evaluation tools by creating
-    <abbr>DOM</abbr> <a
-    href="http://www.w3.org/TR/dom/#interface-documentfragment">document
-    fragments</a> [<a href="#DOM">DOM</a>] from these snippets. Evaluation
-    tools may filter as well the accessibility tests according to their
-    relevance to the document fragment.</p>
+<p>Usually this is implemented in the evaluation tools by creating <a
+    href="http://www.w3.org/TR/dom/#interface-documentfragment"><abbr>DOM</abbr>
+    document fragments</a> [<a href="#DOM">DOM</a>] from these snippets.
+    Evaluation tools may filter as well the accessibility tests according to
+    their relevance to the document fragment.</p>
 
 <p>In this case, it is also frequent that these resources are not transmitted
     via HTTP. For such cases, it is recommended to include the considerations of
@@ -1483,11 +1484,11 @@
 
     <td><a href="#workflow" class="termref">Workflow integration</a></td>
 
-    <td></td>
+    <td>browser plug-in</td>
 
-    <td></td>
+    <td>stand-alone client+server application</td>
 
-    <td></td>
+    <td>stand-alone desktop application</td>
 </tr>
 
 <tr>
@@ -1515,11 +1516,12 @@
 <tr>
     <td><a href="#policy" class="termref">Policy environments</a></td>
 
-    <td>no</td>
+    <td><abbr>WCAG</abbr> 2.0</td>
 
-    <td>Section 508 (USA), <abbr>BITV</abbr> (Germany)</td>
+    <td><abbr>WCAG</abbr> 2.0, Section 508 (USA), <abbr>BITV</abbr> 2.0
+        (Germany)</td>
 
-    <td>no</td>
+    <td><abbr>WCAG</abbr> 2.0</td>
 </tr>
 
 <tr>
@@ -1527,7 +1529,7 @@
 
     <td>not accessible</td>
 
-    <td>accessible in MS Windows (<abbr>MSAA</abbr>)</td>
+    <td>accessible under Microsoft Windows</td>
 
     <td>not accessible</td>
 </tr>
@@ -1535,11 +1537,11 @@
 <tr>
     <td><a href="#platform" class="termref">Platform</a></td>
 
-    <td></td>
+    <td>browser add-on</td>
 
-    <td></td>
+    <td>distributed enterprise application with an external database</td>
 
-    <td></td>
+    <td>desktop application</td>
 </tr>
 </table>
 
@@ -1707,7 +1709,33 @@
     <dt id="_WebDriver">WebDriver</dt>
 
     <dd>WebDriver. W3C Working Draft 12 March 2013. Simon Stewart, David Burns
-        (editors). Available at: <a href="http://www.w3.org/TR/webdriver/">http://www.w3.org/TR/webdriver/</a>
+        (editors). Available at: <a
+        href="http://www.w3.org/TR/webdriver/">http://www.w3.org/TR/webdriver/</a>
+    </dd>
+
+    <dt id="XHTML10">XHTML10</dt>
+
+    <dd>XHTML™ 1.0 The Extensible HyperText Markup Language (Second Edition).
+        A Reformulation of HTML 4 in XML 1.0. W3C Recommendation 26 January
+        2000, revised 1 August 2002. Available at: <a
+        href="http://www.w3.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a>
+    </dd>
+
+    <dt id="XML10">XML10</dt>
+
+    <dd>Extensible Markup Language (XML) 1.0 (Fifth Edition). W3C Recommendation
+        26 November 2008. Tim Bray, Jean Paoli, C. M. Sperberg-McQueen,
+        Eve Maler, François Yergeau (editors). Available at: <a
+        href="http://www.w3.org/TR/REC-xml/">http://www.w3.org/TR/REC-xml/</a>
+    </dd>
+
+    <dt id="XML11">XML11</dt>
+
+    <dd>Extensible Markup Language (XML) 1.1 (Second Edition). W3C
+        Recommendation 16 August 2006, edited in place 29 September 2006.
+        Tim Bray, Jean Paoli, C. M. Sperberg-McQueen, Eve Maler,
+        François Yergeau, John Cowan (editors). Available at: <a
+        href="http://www.w3.org/TR/xml11/">http://www.w3.org/TR/xml11/</a>
     </dd>
 </dl>
 <hr/>
