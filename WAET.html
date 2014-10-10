@@ -140,7 +140,7 @@
             href="http://www.w3.org/WAI/intro/wcag">Web Content Accessibility
         Guidelines (<abbr>WCAG</abbr>)
         2.0</a>. The main purpose of this document is to promote awareness on
-    such features and to provide an introductory guidance for tool developers on
+    such features and to give an introductory guidance for tool developers on
     what kinds of features they could provide in future implementations of their
     tools. This list of features could also be used to help compare different
     types of evaluation tools, for example, during the procurement of such
@@ -148,7 +148,7 @@
 
 <p>The features in scope of this document include capabilities to specify,
     manage, carry out and report the results from web accessibility evaluations.
-    For example, some of the described features relate to crawling websites,
+    For example, some of the described features relate to crawling web sites,
     interacting with tool users to carry out semiautomated evaluation, or
     providing evaluation results in a machine-readable format. This document
     does not describe the evaluation of web content features, which is addressed
@@ -448,8 +448,8 @@
     workflow of the user.</p>
 
 <p>The list of accessibility evaluation features described below is not
-    exhaustive. It may not be possible nor desired for a single tool to
-    implement all of the listed features either. For example, tools that are
+    exhaustive. It may be neither possible nor desired for a single tool to
+    implement all of the listed features. For example, tools that are
     specifically designed to assist designers in creating web page layouts would
     likely not incorporate features for evaluating the code of web applications.
     As mentioned in the abstract, the features presented in this section are
@@ -541,7 +541,7 @@
 
     <li><strong>Document formats</strong>. Many reports and administrative
         information are available in document formats, typically in government
-        websites. The format most commonly found is <abbr>PDF</abbr>, initially
+        web sites. The format most commonly found is <abbr>PDF</abbr>, initially
         developed by Adobe [<a href="#PDF">PDF</a>] and later on standardised by
         <abbr>ISO</abbr>. Although not very frequent on the web, it is possible
         to encounter other formats as well, like the Open Document Format [<a
@@ -563,8 +563,8 @@
 
 <p>This feature identifies which character encodings are supported by the
     evaluation tool. Web content can be transmitted using different character
-    encodings and sets and the correct rendering of the web resources for the
-    evaluation depends upon their correct interpretation. With
+    encodings and sets. The correct rendering of web resources for their
+    evaluation depends upon the correct interpretation of these encodings. With
     <abbr>HTML5</abbr> [<a href="#HTML5">HTML5</a>] there is a push to use UTF-8
     as the default encoding and abandon other legacy encodings. However, it is
     recommended that evaluation tools offer support for other legacy encodings.
@@ -586,7 +586,7 @@
 
 <h4 id="fragments">2.1.4 <abbr>DOM</abbr> document fragments </h4>
 
-<p>Many websites are generated dynamically by combining code templates with
+<p>Many web sites are generated dynamically by combining code templates with
     <abbr>HTML</abbr> snippets that are created by website editors. Evaluation
     tools may be integrated into Content Management Systems (<abbr>CMS</abbr>)
     and Integrated Development Environments (<abbr>IDE</abbr>) to test these
@@ -613,7 +613,7 @@
     that the evaluation process occurs on the rendered <abbr>DOM</abbr>,
     otherwise the tool will miss the complexity of the interface presented to
     the end-user. This is especially relevant for web and cloud applications,
-    which are very common on the web. </p>
+    which are common on the web. </p>
 
 <p>The rendering process should not be underestimated and most of times requires
     the integration of the evaluation tool with a <a
@@ -654,16 +654,17 @@
 
 <h4 id="cookies">2.1.7 Cookies</h4>
 
-<p> A cookie is a name-value pair that it is stored by the user-agent [<a
+<p>A cookie is a name-value pair that it is stored by the user-agent [<a
         href="#HTTPCOOKIES">HTTPCOOKIES</a>]. Cookies contain information
     relevant to the website that is being rendered and often include <a
             href="#authentication" class="termref">authentication</a> and <a
             href="#session" class="termref">session information</a> exchanged
-    between the client and the server, which as seen before may be relevant for
-    content negotiation. A tool that supports cookies may store the cookie
-    information provided by the server in an <abbr>HTTP</abbr> response and
-    reuse it in subsequent requests. It may also allow the user to manually set
-    cookie information to be used with the <abbr>HTTP</abbr> requests. </p>
+    between the client and the server, which as seen before, may be relevant for
+    <a href="#cnegotiation" class="termref">content negotiation</a>. A tool that
+    supports cookies may store the cookie information provided by the server in
+    an <abbr>HTTP</abbr> response and reuse it in subsequent requests. It may
+    also allow the user to manually set cookie information to be used with the
+    <abbr>HTTP</abbr> requests.</p>
 
 <h4 id="authentication">2.1.8 Authentication</h4>
 
@@ -739,7 +740,7 @@
     interaction (such as search forms or feedback forms), manual selection by
     the evaluation tool user, etc.</p>
 
-<p>This feature is important for manual tests in large websites where it is
+<p>This feature is important for manual tests in large web sites where it is
     practically impossible to carry out manual accessibility tests in all of its
     web resources.</p>
 
@@ -796,16 +797,16 @@
 <p>Support for automatic testing varies significantly between tools.
     Evaluation tools may support their users when performing semiautomatic or
     manual tests. This support could be introduced, for example, by
-    highlighting in the source code or in the rendered document areas that
+    highlighting in the source code or in the rendered document the areas that
     create accessibility problems or where human intervention is needed
     to evaluate the outcome of the test.</p>
 
 <p>Tools may keep provenance information (i.e., which part of the report was
-    automatically generated by the tool and which was manually modified).
-    Few accessibility requirements can be tested automatically, thus full
-    accessibility conformance can only be ensured by supporting evaluation
-    tool users to carry out the tests in manual and semiautomatic
-    mode.</p>
+    automatically generated by the tool and which was manually modified). Few
+    accessibility requirements can be tested automatically, thus full
+    accessibility <a href="#conformance" class="termref">conformance</a> can
+    only be ensured by supporting evaluation tool users to carry out the tests
+    in manual and semiautomatic mode.</p>
 
 <h4 id="accReqs">2.2.3 Documenting implementation of accessibility
     requirements</h4>
@@ -902,21 +903,20 @@
 
 <h4 id="import">2.3.4 Importing evaluation results</h4>
 
-<p>There are cases where tool users want to filter results, combine results,
-    compare evaluation results with other tools (for instance, when tool A does
-    not test a given problem, but tool B does it), etc. The support for a common
-    reporting language (see <a href="#stdRep" class="termref">section 2.3.1</a>)
-    facilitates those tasks by allowing importing of information.
-    That functionality also permits the integration of the evaluation tool into
-    other development and testing environments.</p>
+<p>There are cases where tool users want to filter, combine, or compare
+    evaluation results with other tools (for instance, when tool A does not test
+    a given problem, but tool B does it). The support for a common reporting
+    language (see <a href="#stdRep" class="termref">section 2.3.1</a>)
+    facilitates those tasks by allowing importing of information. That
+    functionality also permits the integration of the evaluation tool into other
+    development and testing environments.</p>
 
 <h4 id="customReport">2.3.5 Report customization</h4>
 
 <p>This feature allows the customization of the resulting report according to
     different criteria, such as the target audience, the type of results, the
     part of the site being analyzed, the type of content, etc. This feature may
-    also allow the developer or the accessibility expert to add additional
-    comments in the report.</p>
+    also allow the tool user to add additional comments in the report.</p>
 
 <h4 id="aggregation">2.3.6 Results aggregation</h4>
 
@@ -940,7 +940,8 @@
     status of their website. When issuing such conformance statements it is thus
     necessary to tackle the different types of accessibility techniques (i.e.,
     common failures, sufficient techniques, etc.) and aggregate results as
-    described in the previous section.</p>
+    described in the <a href="#aggregation" class="termref">previous
+    section</a>.</p>
 
 <p> As described in <a href="#manual" class="termref">section 2.2.2</a>, full
     accessibility compliance can only be achieved when manual testing and/or
@@ -1038,7 +1039,7 @@
 
     <li>people commissioning web accessibility evaluations, who need an
         aggregated view of the evaluation results and tools to support the
-        monitoring of their own websites.
+        monitoring of their own web sites.
     </li>
 </ul>
 <p>The availability of such characteristics must be declared explicitly and
@@ -1132,9 +1133,9 @@
     sites with large volumes of content. The main features of the tool are: </p>
 <ul>
     <li>It offers its users the possibility to crawl and evaluate complete
-        websites. It also offers the possibility to customize which parts of the
-        website are analyzed by defining or excluding different areas of the
-        site to be crawled.
+        web sites. It also offers the possibility to customize which parts of
+        the web site are analyzed by defining or excluding different areas of
+        the site to be crawled.
     </li>
 
     <li>Evaluation results are retained in a relational database and there is a
