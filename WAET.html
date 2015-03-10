@@ -621,36 +621,9 @@
         engine</a>. This integration can be achieved in different ways (see <a
             href="#platform" class="termref">section 2.4.6</a>).</p>
 
-<h4 id="cnegotiation">2.1.6 Content negotiation</h4>
-
-<p>Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol
-    that enables web servers to customize the representation of the requested
-    resources according to the demands of the client user agent. Because of
-    this, the identification of resources on the web by a Uniform Resource
-    Identifier (<abbr>URI</abbr>) alone may not be sufficient. From the
-    accessibility perspective, this implies that a resource may present
-    accessibility problems, whilst another one under the same <abbr>URI</abbr>
-    may be fully accessible (for instance, when the page is requested in
-    another language).</p>
-
-<p>To support content negotiation, the testing tool customizes and stores the
-    <abbr>HTTP</abbr> headers according to different criteria:</p>
-
-<ul>
-    <li>to fetch a particular variant of the content, such as a mobile website;
-    </li>
-
-    <li>to fetch a specific language version of a website;</li>
-
-    <li>to control session and authentication information;</li>
-
-    <li>etc.</li>
-</ul>
-
-<p>Content negotiation is supported by other elements described in the following
-    like <a href="#cookies" class="termref">cookies</a>, <a
-            href="#authentication" class="termref">authentication</a> and <a
-            href="#session" class="termref">session information</a>.</p>
+<h4 id="negotiation">2.1.6 Content Negotiation</h4>
+<p>Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol that enables web browsers to select different variants of the same web resources. For example, a web page located at a particular web address (<abbr>URL</abbr>/<abbr>URI</abbr>) can be provided in different languages, in mobile vs. desktop versions, or in other variants depending on the settings of the web browser and other context information sent to the web server. To test these different variants of the web content, evaluation tool users need to be able to configure the content negotiation parameters to emulate different types of web browsers and server requests.</p>
+<p><strong>Note:</strong> This feature relates to other features on <a href="#cookies" class="termref">cookies</a>, <a href="#authentication" class="termref">authentication</a>, and <a href="#session" class="termref">session tracking</a> that are listed as sub-sections.</p>
 
 <h4 id="cookies">2.1.7 Cookies</h4>
 
