@@ -474,89 +474,14 @@
     session information, cookies, authentication information, etc. These
     associated components are also considered in the following. </p>
 
-<h4 id="resformats">2.1.1 Resource formats</h4>
-
-<p>Although the majority of web resources are <abbr>HTML</abbr> documents, there
-    are many other types of resources that need to be considered when analyzing
-    web accessibility. For example, resources like <abbr>CSS</abbr> stylesheets
-    or JavaScript scripts allow the modification of markup documents in the user
-    agent when they are loaded or via user interaction. Many accessibility tests
-    are the result of the interpretation of those resources and their
-    combinations, and are therefore important for an accessibility evaluation.
-    Accessibility evaluation tools should state which types of resource formats
-    they support.</p>
-
-<p>The most common resource formats include:</p>
-
+<h4 id="formats">2.1.1 Content Formats</h4>
+<p>Although the majority of web content is in <abbr>HTML</abbr> format, there are many other types of formats that need to be considered during the evaluation of web content. For example, <abbr>HTML</abbr> code is often intended to be rendered together with associated <abbr>CSS</abbr> and JavaScript code. Many accessibility tests are the result of interpreting the combined rendering of different resources, so that supporting formats beyond <abbr>HTML</abbr> alone is important for accessibility evaluation. There are also many formants beyond <abbr>HTML</abbr> in use on the Web.</p>
+<p>Some of the resource types and corresponding content formats to consider include:</p>
 <ul>
-    <li><strong>Markup formats</strong>. These are normally <abbr>HTML</abbr>
-        [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>],
-        <abbr>XHTML</abbr> [<a href="#XHTML10">XHTML10</a>] or <abbr>XML</abbr>
-        [<a href="#XML10">XML10</a>, <a href="#XML11">XML11</a>]
-        documents. Processing these resources typically
-        requires the ability to ability to render their content according to
-        the Document Object (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>],
-        including all associated resources, such as styles (<abbr>CSS</abbr>),
-        scripts (JavaScript), media and others. Note that the particular version
-        ("Level") of the <abbr>DOM</abbr> has significant impact on the
-        rendering, and is relevant to consider it as part of this feature.
-        <ul>
-            <li><strong>Style formats</strong>. These are presentation
-                modifiers, which conform to the different <abbr>CSS</abbr>
-                specifications [<a href="#CSS2">CSS2</a>, <a
-                        href="#CSS3">CSS3</a>].
-            </li>
-            <li><strong>Script formats</strong>. These are components that
-                modify the content, the presentation, or the behavior of web
-                resources and web applications, be it because of end-user
-                interaction or because of other functional requirements (e.g.,
-                notifications, dynamic updates, etc.). These resources play a
-                critical role in Rich Internet Applications. Ignoring these
-                resources may lead to missing accessibility problems or to
-                report non-existing errors. The scripting language commonly used
-                on the web is JavaScript, based upon ECMAScript [<a
-                        href="#ECMAScript">ECMAScript</a>] standardized by the
-                <a href="http://www.ecma-international.org/">Ecma
-                    International</a> standards organization.
-            </li>
-        </ul>
-    </li>
-
-    <li><strong>Media formats</strong>. These are images (static or animated),
-        movies or audio tracks, which are standalone or embedded within another
-        web resource. It must be highlighted that media resources may be
-        presented in different ways and consist of several resources, for
-        example, a media track and its <a
-                href="http://www.w3.org/TR/WCAG20/#captionsdef">captions</a> and
-        <a href="http://www.w3.org/TR/WCAG20/#audiodescdef">audio
-            descriptions</a>. From the accessibility standpoint, the evaluation
-        of media resources is relevant to some evaluation requirements, such as
-        ensuring that there is an adequate <a
-                href="http://www.w3.org/TR/WCAG20/#contrast-ratiodef">contrast
-            ratio</a> between foreground and background colors in a given image.
-        There are few tools known to test automatically accessibility of media
-        resources. This opens a new area of research to analyze such resources
-        with machine learning algorithms, for instance.
-    </li>
-
-    <li><strong>Document formats</strong>. Many reports and administrative
-        information are available in document formats, typically in government
-        web sites. The format most commonly found is <abbr>PDF</abbr>, initially
-        developed by Adobe [<a href="#PDF">PDF</a>] and later on standardised by
-        <abbr>ISO</abbr>. Although not very frequent on the web, it is possible
-        to encounter other formats as well, like the Open Document Format [<a
-                href="#ODF">ODF</a>] or Microsoft Office formats [<a
-                href="#OOXML">OOXML</a>].
-    </li>
-
-    <li><strong>Resources with other formats</strong>. Examples of these are <a
-            href="http://www.adobe.com/products/flash.html">Adobe Flash
-            movies or applications</a>, <a
-            href="http://www.java.com/">Java applets</a>, <a
-            href="http://www.microsoft.com/silverlight/">Microsoft
-        Silverlight applications</a>, etc. These resources are normally found embedded within
-        <abbr>HTML</abbr> pages as applications.
-    </li>
+  <li><strong>Markup resources</strong>. These are typically in <abbr>HTML</abbr> [<a href="#HTML4">HTML4</a>, <a href="#HTML5">HTML5</a>], <abbr>XHTML</abbr> [<a href="#XHTML10">XHTML10</a>] or <abbr>XML</abbr> [<a href="#XML10">XML10</a>, <a href="#XML11">XML11</a>] formats. Processing these resources usually requires the ability to render the contained content according to the Document Object (<abbr>DOM</abbr>) [<a href="#DOM">DOM</a>]. This including any associated resources, such as styles (<abbr>CSS</abbr> [<a href="#CSS2">CSS2</a>, <a href="#CSS3">CSS3</a>]), scripts (JavaScript [<a href="#ECMAScript">ECMAScript</a>]), media, and others. Note that the particular version ("Level") of the <abbr>DOM</abbr> has significant impact on the rendering, and is relevant to consider it as part of this feature. <br/><strong>Note:</strong> In addition to <abbr>DOM</abbr>, <abbr>CSS</abbr>, and JavaScript, web content may also include embedded content such as Accessible Rich Internet Applications (<abbr>WAI-ARIA</abbr> [<a href="#WAI-ARIA">WAI-ARIA</a>]) that is critical for accessibility, and Scalable Vector Graphics (<abbr>SVG</abbr> [<a href="#SVG">SVG</a>]), Mathematical Markup Language (<abbr>MathML</abbr> [<a href="#MathML">MathML</a>]), and others that are also important to consider.</li>
+  <li><strong>Media resources</strong>. These are images (static and animated), movies, and audio tracks. Typically these are embedded within another web resource, such as the <abbr>HTML</abbr>, but in some cases they are standalone resources (for example, an audio file that is part of the website but provided as a link). Media resources may themselves consist of several individual resources, such as <a href="http://www.w3.org/TR/WCAG20/#captionsdef">captions</a> and <a href="http://www.w3.org/TR/WCAG20/#audiodescdef">audio descriptions</a> for a video. These may be associated with each other using the Synchronized Multimedia Integration Language (<abbr>SMIL</abbr> [<a href="#SMIL">SMIL</a>]), which is a markup resource. <br /><strong>Note:</strong> There are currently few tools known to provide accessibility testing capabilities for media resources, though it is increasingly demanded due to the increased use of video and audio on websites.</li>
+  <li><strong>Document resources</strong>. Many websites provide content in electronic documents format, such as <abbr>PDF</abbr> [<a href="#PDF">PDF</a>], Microsoft Office [<a href="#OOXML">OOXML</a>], and Open Document Format [<a href="#ODF">ODF</a>]. Typically these are standalone resources that are linked from web pages, though sometimes they may be embedded in web pages using web-based editors. Document often include critical information, such as reports, forms, and other publications, and are essential for web accessibility.</li>
+  <li><strong>Other resources</strong>. Formats such as <a href="http://www.adobe.com/products/flash.html">Flash</a> and <a href="http://www.microsoft.com/silverlight/">Silverlight</a> are typically used to provide video and audio media, though they are also used, alike <a href="http://www.java.com/">Java applets</a>, to provide web applications and interactive functionality. These resources are usually embedded within the <abbr>HTML</abbr>.</li>
 </ul>
 
 <h4 id="charencoding">2.1.2 Character encodings</h4>
