@@ -602,24 +602,9 @@
     via HTTP. For such cases, it is recommended to include the considerations of
     <a href="#renderedDOM" class="termref">section 2.1.5</a>.</p>
 
-<h4 id="renderedDOM">2.1.5 Static code evaluation vs. rendered DOM
-    evaluation</h4>
-
-<p>As mentioned earlier (see <a href="#resformats" class="termref">section
-    2.1.1</a>), from the accessibility standpoint it is very important to
-    consider not only the static <abbr>HTML</abbr> source code of a web page,
-    but how the web page is rendered with its associated resources (i.e., media,
-    scripts, styles) and presented to the end user. Therefore, it is recommended
-    that the evaluation process occurs on the rendered <abbr>DOM</abbr>,
-    otherwise the tool will miss the complexity of the interface presented to
-    the end-user. This is especially relevant for web and cloud applications,
-    which are common on the web. </p>
-
-<p>The rendering process should not be underestimated and most of times requires
-    the integration of the evaluation tool with a <a
-            href="http://en.wikipedia.org/wiki/Web_browser_engine">web browser
-        engine</a>. This integration can be achieved in different ways (see <a
-            href="#platform" class="termref">section 2.4.6</a>).</p>
+<h4 id="rendering">2.1.5 Content Rendering</h4>
+<p>As previously mentioned, individual resources, such as the <abbr>HTML</abbr> code, are often intended to be rendered together with associated resources, such as the <abbr>CSS</abbr> and JavaScript code. Thus evaluation tools need to check the rendered <abbr>DOM</abbr> that is used to present the generated content to the end-user, rather than the static (raw) code of individual resources, which can sometimes be meaningless.</p>
+<p><strong>Note:</strong> Accomplishing this typically requires integration with a <a href="http://en.wikipedia.org/wiki/Web_browser_engine">web browser engine</a>, which can sometimes lead to different rendering depending on the particular engine used. Understanding the selected web browser engine is essential in this context. In some cases evaluation tools can be used with different web browser engines interchangeably.</p>
 
 <h4 id="cnegotiation">2.1.6 Content negotiation</h4>
 
