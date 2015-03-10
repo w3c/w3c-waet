@@ -574,15 +574,9 @@
         title="World Wide Web Consortium">W3C</abbr> Internationalization
     Activity [<a href="#W3Ci18n">W3Ci18n</a>].</p>
 
-<h4 id="clanguage">2.1.3 Content language</h4>
-
-<p>Because the web is a multilingual and multicultural space in which
-    information can be presented in different languages, evaluation tools should
-    be in the position to handle them. From an accessibility standpoint, the
-    language of the content is relevant to some accessibility criteria like <a
-            href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html">readability</a>.
-    Therefore, the tool should explicitly declare for such criteria which
-    content languages they support.</p>
+<h4 id="negotiation">2.1.3 Content Negotiation</h4>
+<p>Content negotiation is a characteristic of the <abbr>HTTP(S)</abbr> protocol that enables web browsers to select different variants of the same web resources. For example, a web page located at a particular web address (<abbr>URL</abbr>/<abbr>URI</abbr>) can be provided in different languages, in mobile vs. desktop versions, or in other variants depending on the settings of the web browser and other context information sent to the web server. To test these different variants of the web content, evaluation tool users need to be able to configure the content negotiation parameters to emulate different types of web browsers and server requests.</p>
+<p><strong>Note:</strong> This feature relates to other features on <a href="#cookies" class="termref">cookies</a>, <a href="#authentication" class="termref">authentication</a>, and <a href="#session" class="termref">session tracking</a> that are listed as sub-sections.</p>
 
 <h4 id="fragments">2.1.4 <abbr>DOM</abbr> document fragments </h4>
 
