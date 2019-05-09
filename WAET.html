@@ -689,47 +689,16 @@
     scenarios.</p>
 
 <h4 id="crawling">2.1.10 Crawling</h4>
-
-<p>Some evaluation tools incorporate a web crawler [<a href="#WEBCRAWLER">WEBCRAWLER</a>]
-    able to extract hyperlinks out of web resources. There are many types of
-    resources on the web that contain hyperlinks. The misconception that only
-    <abbr>HTML</abbr> documents contain links may lead to wrong results in the
-    evaluation process. </p>
-
-<p>A web crawler defines an starting point and a set of options. The most common
-    features of a web crawler (configuration capabilities) are:</p>
+<p>While some evaluation tools focus on evaluating individual web pages (or even web page components), other evaluation tools provide capabilities to crawl entire websites. This relies on a web crawler [<a href="#WEBCRAWLER">WEBCRAWLER</a>] that is able to extract hyperlinks out of web resources, which are in many cases in formats other than <abbr>HTML</abbr> alone (see related feature on <a href="#formats" class="termref">content formats</a>).</p>
+<p>Options that need to be configurable to help tool users to manage the crawling behavior include:</p>
 <ul>
-    <li>Types of resource formats crawled (see <a href="#resformats"
-            class="termref">section 2.1.1</a>).
-    </li>
-
-    <li>Capability to define inclusion and exclusion filters. Tool users may
-        require analysis of concrete parts of the website or may not want to
-        include others. Filters can be defined in different ways. For example,
-        the user could define regular expressions against which URLs are
-        matched, the maximum number resources to be crawled or a maximum
-        recursion level in the crawling process.
-    </li>
-
-    <li>Multithreaded crawling. For a large site, it may be important to
-        optimize performance by having a tool able to crawl in parallel threads.
-    </li>
-
-    <li>Avoidance of duplicate downloads and endless loops. Web resources may
-        link to the same resource many times (for example, stylesheets, main
-        navigation pages, images, etc.) in the same website. If the crawler is
-        not able to identify such issues, it may lead to a great performance
-        loss or to other runtime problems.
-    </li>
-
-    <li>Capabilities related to features described in previous sections such as
-        the extraction of links from <a href="#renderedDOM" class="termref">dynamically
-            generated content</a>, <a href="#cnegotiation" class="termref">content
-            negotiation</a>, <a href="#authentication" class="termref">authentication
-            support</a> or <a href="#session" class="termref">session
-            tracking</a>.
-    </li>
+  <li>One or more starting points for the crawling - for example, the homepage or other important website entry points;</li>
+  <li>Inclusion and exclusion filters - for example, regular expressions to define patterns of <abbr>URLs</abbr>/<abbr>URIs</abbr> to be crawled;</li>
+  <li>Maximum number of web pages (or individual web resources) to crawl - for example, how many web pages, image files, etc.;</li>
+  <li>Maximum number of links to follow from each starting point ("link distance") and recursion level in the crawling process.</li>
 </ul>
+<p><strong>Tip:</strong> Managing the performance in this context is an issue, especially for large websites. Strategies such as <em>multi-threaded crawling</em> (ability to spawn parallel threads for the crawling activities), <em>avoiding duplicate downloads</em> (detecting that resources have already been downloaded), and <em>avoiding recursive loops</em> (detecting links that have already been visited).</p>
+<p><strong>Note:</strong> This feature relates to other features on <a href="#formats" class="termref">content formats</a>, <a href="#rendering" class="termref">content rendering</a>, and <a href="#negotiation" class="termref">content negotiation</a> (including <a href="#cookies" class="termref">cookies</a>, <a href="#authentication" class="termref">authentication</a>, and <a href="#session" class="termref">session tracking</a>).</p>
 
 <h4 id="sampling">2.1.11 Sampling</h4>
 
