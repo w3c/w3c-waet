@@ -678,15 +678,8 @@
 </p>
 
 <h4 id="session">2.1.9 Session tracking</h4>
-
-<p>Within <abbr>HTTP</abbr>, session information can be used for different
-    purposes like, e.g., implementation of security mechanisms (login
-    information, to logout a user after a long inactivity period) or track the
-    interaction paths of the users. Session information can be stored in the
-    user agent local storage, in a session ID in the <abbr>URL</abbr> or in a
-    <a href="#cookies" class="termref">cookie</a>, for example. An evaluation
-    tool that supports session tracking should be able to handle these different
-    scenarios.</p>
+<p>Websites often track the activity of users during a session (visit). For example, the website tracks which products you selected for purchase, the credit card information you provided, and other interactions during a process. Different mechanisms can be used for session tracking, for example using local storage in the web browser, session ID in the <abbr>URL</abbr>/<abbr>URI</abbr>, and <a href="#cookies" class="termref">cookies</a>. Also here different mechanisms may be used on a single website. Evaluation tools need to be able to support these different types of session tracking mechansisms, and, where relevant, allow tool users to configure their parameter to emulate specific users and situations.</p>
+<p><strong>Note:</strong> The user emulation mechanisms in scope of this section are based on <abbr>HTTP</abbr> exchanges between the web browser and server. Other (application-based) forms of user emulation require other features, in particular the <a href="#automation" class="termref">test automation</a> feature.</p>
 
 <h4 id="crawling">2.1.10 Crawling</h4>
 
