@@ -667,15 +667,8 @@
     <abbr>HTTP</abbr> requests.</p>
 
 <h4 id="authentication">2.1.8 Authentication</h4>
-
-<p>Websites may require authentication (e.g., <abbr>HTTP</abbr> authentication,
-    OpenID, etc.) to control access to given parts of the website or to present
-    customized content to authenticated users. A tool that supports
-    authentication allows the user to provide their credentials beforehand, so
-    that they are used when accessing protected resources, or it prompts the
-    user to enter her credentials upon the server request. The tool may also
-    support the use of different credentials for different parts of a web site.
-</p>
+<p>Many websites have restricted areas that require authentication (typcially using passwords) to access these areas. Websites may also provide different presentation and functionality depending on the user credentials. For example, the administrator of an online shop might have more information and options presented than typical website users. Different authentication mechanisms, such as <abbr>HTTP</abbr> authentication and OpenID are commonly used by websites, and sometimes different authentication mechansims are used for different parts of the same website. Evaluation tools need to support these different types of user authentication mechanisms, and ideally allow tool users to configure authentication parameters.</p>
+<p><strong>Note:</strong> The authentication mechanisms in scope of this section are based on <abbr>HTTP</abbr> exchanges between the web browser and server. Other (application-based) forms of authentication require other features, in particular the <a href="#automation" class="termref">test automation</a> feature.</p>
 
 <h4 id="session">2.1.9 Session tracking</h4>
 
