@@ -653,18 +653,7 @@
             href="#session" class="termref">session information</a>.</p>
 
 <h4 id="cookies">2.1.7 Cookies</h4>
-
-<p>A cookie is a name-value pair that it is stored by the user-agent [<a
-        href="#HTTPCOOKIES">HTTPCOOKIES</a>]. Cookies contain information
-    relevant to the website that is being rendered and often include <a
-            href="#authentication" class="termref">authentication</a> and <a
-            href="#session" class="termref">session information</a> exchanged
-    between the client and the server, which as seen before, may be relevant for
-    <a href="#cnegotiation" class="termref">content negotiation</a>. A tool that
-    supports cookies may store the cookie information provided by the server in
-    an <abbr>HTTP</abbr> response and reuse it in subsequent requests. It may
-    also allow the user to manually set cookie information to be used with the
-    <abbr>HTTP</abbr> requests.</p>
+<p>Cookies [<a href="#HTTPCOOKIES">HTTPCOOKIES</a>] are exchanged between the web browser and server as part of the <a href="#negotiation" class="termref">content negotiation</a>. They typically include information about website users, such as <a href="#authentication" class="termref">authentication</a> and <a href="#session" class="termref">session tracking</a> information. Cookies can also contain user preferences settings for the website and references to user profiles stored on the server. Thus the web content generated may be substantially different depending on the cookie parameters exchanged. Evaluation tools need be able to at least exchange and store cookies between different <abbr>HTTP</abbr> requests and responses exchanges, to facilitate authentication and session tracking. Ideally evaluation tool users are also able to configure cookie paramaters, to emulate different types of web users and user profiles.</p>
 
 <h4 id="authentication">2.1.8 Authentication</h4>
 
